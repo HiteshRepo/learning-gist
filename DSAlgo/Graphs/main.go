@@ -19,7 +19,10 @@ const CeilPath = "ceilPath"
 const FloorPath = "floorPath"
 
 func main() {
-	hasPathTest()
+	//hasPathTest()
+	//displayConnectedVerticesTest()
+	//isGraphConnected()
+	noOfIslands()
 }
 
 func hasPathTest() {
@@ -95,4 +98,118 @@ func hasPathTest() {
 	fmt.Printf("Ceil path between %d and %d for weight %d is %s\n", src, dest, threshold, solutions[CeilPath])
 	fmt.Printf("Floor path between %d and %d for weight %d is %s\n", src, dest, threshold, solutions[FloorPath])
 	fmt.Printf("3rd largest path is %s with weight %d \n", path.Name, path.Weight)
+}
+
+func displayConnectedVerticesTest() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+
+	visited := make([]bool, 7)
+	currentPath := make([]int, 0)
+	connectedPaths := make([][]int, 0)
+	graph.displayAllConnectedComponents(visited, &currentPath, &connectedPaths)
+
+	fmt.Println(connectedPaths)
+}
+
+func isGraphConnected() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+	visited := make([]bool, 7)
+	currentPath := make([]int, 0)
+	connectedPaths := make([][]int, 0)
+	graph.displayAllConnectedComponents(visited, &currentPath, &connectedPaths)
+	fmt.Printf("Is above graph connected? %v\n", len(connectedPaths) == 1)
+
+	graph = &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,40, false)
+	graph.addEdge(3,4,2, false)
+	graph.addEdge(4,5,3, false)
+	graph.addEdge(5,6,3, false)
+	graph.addEdge(4,6,8, false)
+
+	graph.display()
+	visited = make([]bool, 7)
+	currentPath = make([]int, 0)
+	connectedPaths = make([][]int, 0)
+	graph.displayAllConnectedComponents(visited, &currentPath, &connectedPaths)
+	fmt.Printf("Is above graph connected? %v\n", len(connectedPaths) == 1)
+}
+
+func noOfIslands() {
+	island := [][]int{
+		{0,0,1,1,1,1,1,1},
+		{0,0,1,1,1,1,1,1},
+		{1,1,1,1,1,1,1,0},
+		{1,1,0,0,0,1,1,0},
+		{1,1,1,1,0,1,1,0},
+		{1,1,1,1,0,1,1,0},
+		{1,1,1,1,1,1,1,0},
+		{1,1,1,1,1,1,1,0},
+	}
+
+	visited := [][]bool{
+		{false,false,false,false,false,false,false,false},
+		{false,false,false,false,false,false,false,false},
+		{false,false,false,false,false,false,false,false},
+		{false,false,false,false,false,false,false,false},
+		{false,false,false,false,false,false,false,false},
+		{false,false,false,false,false,false,false,false},
+		{false,false,false,false,false,false,false,false},
+		{false,false,false,false,false,false,false,false},
+	}
+	count := 0
+
+	for i:=0; i<len(island); i++ {
+		for j:=0; j<len(island[i]); j++ {
+			if visited[i][j] || island[i][j] == 1 {
+				continue
+			}
+			visitConnectedLands(island, i, j, visited)
+			count++
+		}
+	}
+	fmt.Printf("No. of connected islands are: %d\n", count)
+}
+
+func visitConnectedLands(island [][]int, i,j int, visited [][]bool) {
+	if i < 0 || j <0 || i >= len(island) || j >= len(island[i]) || island[i][j] == 1 || visited[i][j] {
+		return
+	}
+
+	visited[i][j] = true
+	visitConnectedLands(island, i-1, j, visited)
+	visitConnectedLands(island, i, j+1, visited)
+	visitConnectedLands(island, i+1, j, visited)
+	visitConnectedLands(island, i, j-1, visited)
 }

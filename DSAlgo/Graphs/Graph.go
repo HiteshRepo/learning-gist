@@ -155,6 +155,31 @@ func (g *Graph) multiSolver(src, dest, threshold int, visited []bool, psf string
 	visited[src] = false
 }
 
+func (g *Graph) displayAllConnectedComponents(visited []bool, currentPath *[]int, connectedPaths *[][]int) {
+	for _,n := range g.vertices {
+		if visited[n.key] {
+			continue
+		}
+		newArr := make([]int, 0)
+		currentPath = &newArr
+		drawConnectedVertices(g, n.key, currentPath, visited)
+		*connectedPaths = append(*connectedPaths, *currentPath)
+	}
+}
+
+func drawConnectedVertices(g *Graph, src int, currentPath *[]int, visited []bool) {
+
+	visited[src] = true
+	*currentPath = append(*currentPath, src)
+
+	for _,n := range g.vertices[src].nbrs {
+		if visited[n.key] {
+			continue
+		}
+		drawConnectedVertices(g, n.key, currentPath, visited)
+	}
+}
+
 func (g *Graph) display() {
 	for _,v := range g.vertices {
 		fmt.Printf("\nVertex %v : ", v.key)
@@ -163,4 +188,14 @@ func (g *Graph) display() {
 		}
 	}
 	fmt.Printf("\n")
+}
+
+func contains(nums []int, num int) bool {
+	for _, n := range nums {
+		if n == num {
+			return true
+		}
+	}
+
+	return false
 }
