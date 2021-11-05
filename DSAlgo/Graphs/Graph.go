@@ -91,6 +91,35 @@ func (g *Graph) getAllPaths(src, dest int, visited []bool, psf string, allPaths 
 	visited[src] = false
 }
 
+func (g *Graph) drawConnectedVerticesHamiltonian(src int, visited map[int]bool, psf string, hamiltonianPaths *map[string]bool, oSrc int) {
+	if len(psf) == len(g.vertices) {
+		(*hamiltonianPaths)[psf] = g.hasEdge(src, oSrc)
+		return
+	}
+
+	visited[src] = true
+	for _,n := range g.vertices[src].nbrs {
+		if visited[n.key] {
+			continue
+		}
+		g.drawConnectedVerticesHamiltonian(n.key, visited, fmt.Sprintf("%s%d", psf, n.key), hamiltonianPaths, oSrc)
+	}
+	visited[src] = false
+}
+
+func (g *Graph) getAllPathsHamiltonian(src int) map[string]bool {
+	hamiltonianPaths := make(map[string]bool, 0)
+	visited := make(map[int]bool, 0)
+	g.drawConnectedVerticesHamiltonian(src, visited, fmt.Sprintf("%d", src), &hamiltonianPaths, src)
+	// for all vertices
+	//for _,v := range g.vertices {
+	//	visited := make(map[int]bool, 0)
+	//	g.drawConnectedVerticesHamiltonian(v.key, visited, fmt.Sprintf("%d", v.key), &hamiltonianPaths, v.key)
+	//}
+
+	return hamiltonianPaths
+}
+
 func (g *Graph) getAllPathsWithCumulativeWeight(src, dest int, visited []bool, psf string, wsf int, allPathsWeighted *map[string]int) {
 	if src == dest {
 		(*allPathsWeighted)[psf] = wsf
@@ -188,6 +217,15 @@ func (g *Graph) display() {
 		}
 	}
 	fmt.Printf("\n")
+}
+
+func areAllVisited(visited map[int]bool) bool {
+	for _,v := range visited {
+		if !v {
+			return false
+		}
+	}
+	return true
 }
 
 func contains(nums []int, num int) bool {

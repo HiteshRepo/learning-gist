@@ -22,7 +22,9 @@ func main() {
 	//hasPathTest()
 	//displayConnectedVerticesTest()
 	//isGraphConnected()
-	noOfIslands()
+	//noOfIslands()
+	//perfectFriends()
+	hamiltonianPathAndCycles()
 }
 
 func hasPathTest() {
@@ -212,4 +214,62 @@ func visitConnectedLands(island [][]int, i,j int, visited [][]bool) {
 	visitConnectedLands(island, i, j+1, visited)
 	visitConnectedLands(island, i+1, j, visited)
 	visitConnectedLands(island, i, j-1, visited)
+}
+
+func perfectFriends() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,0, false)
+	graph.addEdge(2,3,0, false)
+	graph.addEdge(4,5,0, false)
+	graph.addEdge(5,6,0, false)
+	graph.addEdge(4,6,0, false)
+
+	graph.display()
+
+	visited := make([]bool, 7)
+	currentPath := make([]int, 0)
+	connectedPaths := make([][]int, 0)
+	graph.displayAllConnectedComponents(visited, &currentPath, &connectedPaths)
+
+	fmt.Println(connectedPaths)
+
+	pairs := 0
+
+	for i:=0; i<len(connectedPaths); i++ {
+		for j:=i+1; j<len(connectedPaths); j++ {
+			pairs += len(connectedPaths[i]) * len(connectedPaths[j])
+		}
+	}
+
+	fmt.Printf("No of perfect freinds: %d\n", pairs)
+}
+
+func hamiltonianPathAndCycles() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,10, false)
+	graph.addEdge(3,4,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(2,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+
+	hamiltonianPaths := graph.getAllPathsHamiltonian(0)
+	for path,isCycle := range hamiltonianPaths {
+		fmt.Println(path, isCycle)
+	}
 }
