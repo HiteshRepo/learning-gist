@@ -24,7 +24,8 @@ func main() {
 	//isGraphConnected()
 	//noOfIslands()
 	//perfectFriends()
-	hamiltonianPathAndCycles()
+	//hamiltonianPathAndCycles()
+	knightsTour()
 }
 
 func hasPathTest() {
@@ -273,3 +274,51 @@ func hamiltonianPathAndCycles() {
 		fmt.Println(path, isCycle)
 	}
 }
+
+func knightsTour() {
+	dimension := 5
+	row := 2
+	column := 2
+
+	chessBoard := make([][]int, dimension)
+	for i := range chessBoard {
+		chessBoard[i] = make([]int, dimension)
+	}
+
+	printKnightsTour(chessBoard, row, column, 1)
+}
+
+func printKnightsTour(board [][]int, row, column, move int) {
+	if row < 0 || column < 0 || row >= len(board) || column >= len(board) || board[row][column] > 0 {
+		return
+	} else if move == (len(board) * len(board)) {
+		board[row][column] = move
+		displayBoard(board)
+		board[row][column] = 0
+		return
+	}
+
+	board[row][column] = move
+
+	printKnightsTour(board, row-2, column+1, move+1)
+	printKnightsTour(board, row-1, column+2, move+1)
+	printKnightsTour(board, row+1, column+2, move+1)
+	printKnightsTour(board, row+2, column+1, move+1)
+	printKnightsTour(board, row+2, column-1, move+1)
+	printKnightsTour(board, row+1, column-2, move+1)
+	printKnightsTour(board, row-1, column-2, move+1)
+	printKnightsTour(board, row-2, column-1, move+1)
+
+	board[row][column] = 0
+}
+
+func displayBoard(board [][]int) {
+	for i:=0; i<len(board); i++ {
+		for j:=0; j<len(board[i]); j++ {
+			fmt.Printf("%d ", board[i][j])
+		}
+		fmt.Println()
+	}
+	fmt.Println()
+}
+
