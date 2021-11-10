@@ -12,6 +12,16 @@ type Edge struct {
 	isDirected bool
 }
 
+type Pair struct {
+	v int
+	psf string
+	lvl int
+}
+
+func NewPair(v int, psf string, lvl int) *Pair {
+	return &Pair{v, psf, lvl}
+}
+
 func (g *Graph) getEdgeByVertices(src int, dest int) int {
 	for _,e := range g.edges {
 		if e.isDirected {

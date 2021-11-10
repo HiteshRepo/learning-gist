@@ -19,15 +19,128 @@ const CeilPath = "ceilPath"
 const FloorPath = "floorPath"
 
 func main() {
+
+	// <----- BFS ----->
+	//BFSTraverse()
+	//isGraphCyclic()
+	isGraphBipartite()
+
+
+	// <----- DFS ----->
 	//hasPathTest()
 	//displayConnectedVerticesTest()
 	//isGraphConnected()
 	//noOfIslands()
 	//perfectFriends()
 	//hamiltonianPathAndCycles()
-	knightsTour()
+	//knightsTour()
 }
 
+// BFS solutions
+
+func BFSTraverse() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,10, false)
+	graph.addEdge(3,4,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+
+	src := 2
+	visited := make([]bool, 7)
+	q := NewQueue()
+	q.Add(&Pair{src, fmt.Sprintf("%d", src), 0})
+	graph.traverseBSF(visited, q)
+}
+
+func isGraphCyclic() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,10, false)
+	graph.addEdge(3,4,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+
+	graph.isGraphCyclic()
+
+	graph = &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+
+	graph.isGraphCyclic()
+}
+
+// graph is bipartite if it is possible to:
+// divide vertices into - 2 mutually exclusive and exhaustive sets
+// such that all edges are across sets
+// solution : all non-cyclic graphs are bipartite, if cyclic then they should be of even sizes
+func isGraphBipartite() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,10, false)
+	graph.addEdge(3,4,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+
+	graph.isGraphBipartite()
+
+	graph = &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(3,4,10, false)
+
+	graph.display()
+
+	graph.isGraphBipartite()
+}
+
+// DFS solutions
 func hasPathTest() {
 	graph := &Graph{}
 

@@ -66,6 +66,131 @@ func hasVertex(vertices []*Vertex, key int) bool {
 	return false
 }
 
+// BFS
+
+func (g *Graph) traverseBSF(visited []bool, q *Queue) {
+
+	for !q.IsEmpty() {
+		// remove
+		removedPair := q.RemoveFirst()
+
+		// mark*
+		if visited[removedPair.v] {
+			continue
+		}
+		visited[removedPair.v] = true
+
+		// work
+		fmt.Printf("%d @ %s\n", removedPair.v, removedPair.psf)
+
+		// add*
+		for _,n := range g.vertices[removedPair.v].nbrs {
+			if visited[n.key] {
+				continue
+			}
+			q.Add(&Pair{n.key, fmt.Sprintf("%s%d", removedPair.psf, n.key), removedPair.lvl + 1})
+		}
+	}
+}
+
+func (g *Graph) isGraphCyclic() {
+	visited := make([]bool, 7)
+	for _,v := range g.vertices {
+		if visited[v.key] {
+			continue
+		}
+		if g.isVertexCyclic(visited, v.key) {
+			fmt.Println("The graph has a cycle")
+			return
+		}
+	}
+}
+
+func (g *Graph) isVertexCyclic(visited []bool, vertex int) bool {
+	q := NewQueue()
+	q.Add(&Pair{vertex, fmt.Sprintf("%d", vertex), 0})
+
+	for !q.IsEmpty() {
+		// remove
+		removedPair := q.RemoveFirst()
+
+		// mark*
+		if visited[removedPair.v] {
+			fmt.Printf("cycle detected : %d @ %s\n", removedPair.v, removedPair.psf)
+			return true
+		}
+		visited[removedPair.v] = true
+
+		// work
+		// no work
+
+		// add*
+		for _,n := range g.vertices[removedPair.v].nbrs {
+			if visited[n.key] {
+				continue
+			}
+			q.Add(&Pair{n.key, fmt.Sprintf("%s%d", removedPair.psf, n.key), removedPair.lvl + 1})
+		}
+	}
+
+	return false
+}
+
+func (g *Graph) isGraphBipartite() {
+	visited := make([]int, len(g.vertices))
+	for i:=0; i<len(visited); i++ {
+		visited[i] = -1
+	}
+	set0 := make([]int, 0)
+	set1 := make([]int, 0)
+	for _,v := range g.vertices {
+		if visited[v.key] != -1 {
+			continue
+		}
+		if g.checkBipartite(visited, v.key, set0, set1) {
+			fmt.Println("graph is bipartite")
+			return
+		}
+	}
+	fmt.Println("graph is not bipartite")
+}
+
+func (g *Graph) checkBipartite(visited []int, vertex int, set0, set1 []int) bool {
+	q := NewQueue()
+	q.Add(&Pair{vertex, fmt.Sprintf("%d", vertex), 0})
+
+	for !q.IsEmpty() {
+		// remove
+		removedPair := q.RemoveFirst()
+
+		// mark*
+		if visited[removedPair.v] != -1 {
+			fmt.Printf("cycle detected : %d @ %s\n", removedPair.v, removedPair.psf)
+			if removedPair.lvl != visited[removedPair.v] {
+				return false
+			}
+
+		} else {
+			visited[removedPair.v] = removedPair.lvl
+		}
+
+		// work
+		// no work
+
+		// add*
+		for _,n := range g.vertices[removedPair.v].nbrs {
+			if visited[n.key] != -1 {
+				continue
+			}
+			q.Add(&Pair{n.key, fmt.Sprintf("%s%d", removedPair.psf, n.key), removedPair.lvl + 1})
+		}
+	}
+
+	return true
+}
+
+// DFS
+
 func (g *Graph) hasPath(src, dest int, visited []bool) bool {
 	allPaths := make([]string, 0)
 	g.getAllPaths(src, dest, visited, fmt.Sprintf("%d", src), &allPaths)
