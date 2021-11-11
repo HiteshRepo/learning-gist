@@ -1,13 +1,18 @@
 package main
 
 type Path struct {
-	Name string
+	Name int
 	Weight int
+	Psf string
 
 	Index int
 }
 
 type PriorityQueue []*Path
+
+func NewPriorityQueue() PriorityQueue {
+	return make(PriorityQueue, 0)
+}
 
 func (pq PriorityQueue) Len() int { return  len(pq) }
 

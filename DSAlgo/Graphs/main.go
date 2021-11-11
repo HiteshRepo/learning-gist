@@ -24,7 +24,8 @@ func main() {
 	//BFSTraverse()
 	//isGraphCyclic()
 	//isGraphBipartite()
-	spreadInfection()
+	//spreadInfection()
+	dijkstra()
 
 
 	// <----- DFS ----->
@@ -165,6 +166,27 @@ func spreadInfection() {
 	fmt.Println(result)
 }
 
+func dijkstra() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,40, false)
+	graph.addEdge(3,4,2, false)
+	graph.addEdge(4,5,3, false)
+	graph.addEdge(5,6,3, false)
+	graph.addEdge(4,6,8, false)
+
+	graph.display()
+
+	graph.dijkstraAlgo(0)
+}
+
 // DFS solutions
 func hasPathTest() {
 	graph := &Graph{}
@@ -227,7 +249,7 @@ func hasPathTest() {
 	threshold := 40
 	kthLargest := 3
 
-	priorityQueue := make(PriorityQueue, 0)
+	priorityQueue := NewPriorityQueue()
 
 	graph.multiSolver(src, dest, threshold, visited, fmt.Sprintf("%d", src), 0, &solutions, &priorityQueue, kthLargest)
 	heap.Init(&priorityQueue)

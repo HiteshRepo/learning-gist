@@ -228,6 +228,40 @@ func (g *Graph) traverseBFSAndStopAtGivenLevel(src, time int) map[int][]int {
 	return map[int][]int{count: filterVisited(visited)}
 }
 
+func (g *Graph) dijkstraAlgo(src int) {
+	visited := make([]bool, len(g.vertices))
+	for i:=0; i<len(visited); i++ {
+		visited[i] = false
+	}
+
+	q := NewPriorityQueue()
+	heap.Init(&q)
+	heap.Push(&q, &Path{Name: src, Psf: fmt.Sprintf("%d",src), Weight: 0, Index: q.Len()})
+
+	for q.Len() > 0 {
+		// remove
+		removed := heap.Pop(&q).(*Path)
+
+		// mark*
+		if visited[removed.Name] {
+			continue
+		}
+		visited[removed.Name] = true
+
+		// work
+		fmt.Printf("%d via %s @ %d\n", removed.Name, removed.Psf, removed.Weight)
+
+		// add*
+		for _,n := range g.vertices[removed.Name].nbrs {
+			if visited[n.key] {
+				continue
+			}
+			resWt := removed.Weight + g.getEdgeByVertices(n.key, removed.Name)
+			heap.Push(&q, &Path{Name: n.key, Psf: fmt.Sprintf("%s%d", removed.Psf, n.key), Weight: resWt, Index: q.Len()})
+		}
+	}
+}
+
 // DFS
 
 func (g *Graph) hasPath(src, dest int, visited []bool) bool {
@@ -325,11 +359,11 @@ func (g *Graph) multiSolver(src, dest, threshold int, visited []bool, psf string
 		}
 
 		if pq.Len() < k {
-			heap.Push(pq,&Path{Name: psf, Weight: wsf, Index: pq.Len()})
+			heap.Push(pq,&Path{Psf: psf, Weight: wsf, Index: pq.Len()})
 		} else {
 			leastPriority := heap.Pop(pq).(*Path)
 			if leastPriority.Weight < wsf {
-				heap.Push(pq,&Path{Name: psf, Weight: wsf, Index: pq.Len()})
+				heap.Push(pq,&Path{Psf: psf, Weight: wsf, Index: pq.Len()})
 			} else {
 				heap.Push(pq,leastPriority)
 			}
