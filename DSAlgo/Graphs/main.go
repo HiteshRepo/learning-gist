@@ -26,7 +26,8 @@ func main() {
 	//isGraphBipartite()
 	//spreadInfection()
 	//dijkstra()
-	prims()
+	//prims()
+	topologicalSortDemo()
 
 
 	// <----- DFS ----->
@@ -188,6 +189,11 @@ func dijkstra() {
 	graph.dijkstraAlgo(0)
 }
 
+// minimum spanning tree
+// it is a sub-graph
+// all vertices are connected
+// it is an acyclic graph
+// spanning - all vertices
 func prims() {
 	graph := &Graph{}
 
@@ -500,6 +506,45 @@ func displayBoard(board [][]int) {
 			fmt.Printf("%d ", board[i][j])
 		}
 		fmt.Println()
+	}
+	fmt.Println()
+}
+
+// permutation of vertices for a DAG, such that
+// for all edges uv, u appears before v
+// D - directed
+// A - acyclic
+// G - graph
+func topologicalSortDemo() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, true)
+	graph.addEdge(1,2,10, true)
+	graph.addEdge(2,3,10, true)
+	graph.addEdge(0,3,10, true)
+	graph.addEdge(4,3,10, true)
+	graph.addEdge(4,5,10, true)
+	graph.addEdge(5,6,10, true)
+	graph.addEdge(4,6,10, true)
+
+	graph.display()
+
+	visited := make([]bool, len(graph.vertices))
+	stack := NewStack()
+
+	for _,v := range graph.vertices {
+		if visited[v.key] {
+			continue
+		}
+		graph.topologicalSort(v.key, visited, stack)
+	}
+
+	for !stack.IsEmpty() {
+		fmt.Printf("%d ", stack.Pop())
 	}
 	fmt.Println()
 }

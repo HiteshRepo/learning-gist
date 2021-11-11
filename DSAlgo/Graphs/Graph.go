@@ -453,6 +453,17 @@ func (g *Graph) display() {
 	fmt.Printf("\n")
 }
 
+func (g *Graph) topologicalSort(src int, visited []bool, stack *Stack) {
+	visited[src] = true
+	for _,n := range g.vertices[src].nbrs {
+		if visited[n.key] {
+			continue
+		}
+		g.topologicalSort(n.key, visited, stack)
+	}
+	stack.Push(src)
+}
+
 func areAllVisited(visited map[int]bool) bool {
 	for _,v := range visited {
 		if !v {
