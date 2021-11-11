@@ -206,7 +206,7 @@ func prims() {
 
 	graph.display()
 
-	graph.minimumSpanningTreeKruskals(0)
+	graph.minimumSpanningTreePrims(0)
 }
 
 // DFS solutions
