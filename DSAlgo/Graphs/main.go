@@ -27,7 +27,8 @@ func main() {
 	//spreadInfection()
 	//dijkstra()
 	//prims()
-	topologicalSortDemo()
+	//topologicalSortDemo()
+	iterativeDFSDemo()
 
 
 	// <----- DFS ----->
@@ -544,8 +545,28 @@ func topologicalSortDemo() {
 	}
 
 	for !stack.IsEmpty() {
-		fmt.Printf("%d ", stack.Pop())
+		fmt.Printf("%d ", stack.Pop().v)
 	}
 	fmt.Println()
+}
+
+func iterativeDFSDemo() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,40, false)
+	graph.addEdge(3,4,2, false)
+	graph.addEdge(4,5,3, false)
+	graph.addEdge(5,6,3, false)
+	graph.addEdge(4,6,8, false)
+
+	src := 2
+	graph.iterativeDFS(src)
 }
 

@@ -461,7 +461,31 @@ func (g *Graph) topologicalSort(src int, visited []bool, stack *Stack) {
 		}
 		g.topologicalSort(n.key, visited, stack)
 	}
-	stack.Push(src)
+	stack.Push(&Pair{v: src})
+}
+
+func (g *Graph) iterativeDFS(src int) {
+	visited := make([]bool, len(g.vertices))
+	stack := NewStack()
+	stack.Push(&Pair{v: src, psf: fmt.Sprintf("%d", src)})
+
+	for !stack.IsEmpty() {
+		removed := stack.Pop()
+
+		if visited[removed.v] {
+			continue
+		}
+		visited[removed.v] = true
+
+		fmt.Printf("%d @ %s\n", removed.v, removed.psf)
+
+		for _,n := range g.vertices[removed.v].nbrs {
+			if visited[n.key] {
+				continue
+			}
+			stack.Push(&Pair{v: n.key, psf: fmt.Sprintf("%s%d", removed.psf, n.key)})
+		}
+	}
 }
 
 func areAllVisited(visited map[int]bool) bool {
