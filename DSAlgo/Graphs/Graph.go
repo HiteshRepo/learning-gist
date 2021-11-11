@@ -141,13 +141,12 @@ func (g *Graph) isGraphBipartite() {
 	for i:=0; i<len(visited); i++ {
 		visited[i] = -1
 	}
-	set0 := make([]int, 0)
-	set1 := make([]int, 0)
+
 	for _,v := range g.vertices {
 		if visited[v.key] != -1 {
 			continue
 		}
-		if g.checkBipartite(visited, v.key, set0, set1) {
+		if g.checkBipartite(visited, v.key) {
 			fmt.Println("graph is bipartite")
 			return
 		}
@@ -155,7 +154,7 @@ func (g *Graph) isGraphBipartite() {
 	fmt.Println("graph is not bipartite")
 }
 
-func (g *Graph) checkBipartite(visited []int, vertex int, set0, set1 []int) bool {
+func (g *Graph) checkBipartite(visited []int, vertex int) bool {
 	q := NewQueue()
 	q.Add(&Pair{vertex, fmt.Sprintf("%d", vertex), 0})
 
@@ -187,6 +186,46 @@ func (g *Graph) checkBipartite(visited []int, vertex int, set0, set1 []int) bool
 	}
 
 	return true
+}
+
+func (g *Graph) traverseBFSAndStopAtGivenLevel(src, time int) map[int][]int {
+	visited := make([]int, len(g.vertices))
+	for i:=0; i<len(visited); i++ {
+		visited[i] = -1
+	}
+
+	count := 0
+
+	q := NewQueue()
+	q.Add(&Pair{src, fmt.Sprintf("%d", src), 0})
+
+	for !q.IsEmpty() {
+		// remove
+		removedPair := q.RemoveFirst()
+
+		// mark*
+		if visited[removedPair.v] != -1 {
+			continue
+		}
+
+		// work
+		if removedPair.lvl < time {
+			count++
+		} else {
+			break
+		}
+		visited[removedPair.v] = removedPair.lvl
+
+		// add*
+		for _,n := range g.vertices[removedPair.v].nbrs {
+			if visited[n.key] != -1 {
+				continue
+			}
+			q.Add(&Pair{n.key, fmt.Sprintf("%s%d", removedPair.psf, n.key), removedPair.lvl + 1})
+		}
+	}
+
+	return map[int][]int{count: filterVisited(visited)}
 }
 
 // DFS
@@ -361,4 +400,14 @@ func contains(nums []int, num int) bool {
 	}
 
 	return false
+}
+
+func filterVisited(all []int) []int {
+	visited := make([]int, 0)
+	for i,n := range all {
+		if n != -1 && !contains(visited, i) {
+			visited = append(visited, i)
+		}
+	}
+	return visited
 }

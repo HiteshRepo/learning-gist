@@ -23,7 +23,8 @@ func main() {
 	// <----- BFS ----->
 	//BFSTraverse()
 	//isGraphCyclic()
-	isGraphBipartite()
+	//isGraphBipartite()
+	spreadInfection()
 
 
 	// <----- DFS ----->
@@ -138,6 +139,30 @@ func isGraphBipartite() {
 	graph.display()
 
 	graph.isGraphBipartite()
+}
+
+func spreadInfection() {
+	graph := &Graph{}
+
+	for i:=0; i<7; i++ {
+		graph.addVertex(i)
+	}
+
+	graph.addEdge(0,1,10, false)
+	graph.addEdge(1,2,10, false)
+	graph.addEdge(2,3,10, false)
+	graph.addEdge(0,3,10, false)
+	graph.addEdge(3,4,10, false)
+	graph.addEdge(4,5,10, false)
+	graph.addEdge(5,6,10, false)
+	graph.addEdge(4,6,10, false)
+
+	graph.display()
+
+	src := 6
+	time := 3
+	result := graph.traverseBFSAndStopAtGivenLevel(src, time)
+	fmt.Println(result)
 }
 
 // DFS solutions
