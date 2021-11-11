@@ -262,6 +262,42 @@ func (g *Graph) dijkstraAlgo(src int) {
 	}
 }
 
+func (g *Graph) minimumSpanningTreePrims(src int) {
+	visited := make([]bool, len(g.vertices))
+	for i:=0; i<len(visited); i++ {
+		visited[i] = false
+	}
+
+	q := NewPriorityQueue()
+	heap.Init(&q)
+	heap.Push(&q, &Path{Name: src, AcquiredVertex: -1, Weight: 0, Index: q.Len()})
+
+	for q.Len() > 0 {
+		// remove
+		removed := heap.Pop(&q).(*Path)
+
+		// mark*
+		if visited[removed.Name] {
+			continue
+		}
+		visited[removed.Name] = true
+
+		// work
+		if removed.AcquiredVertex != -1 {
+			fmt.Printf("%d - %d @ %d\n", removed.Name, removed.AcquiredVertex, removed.Weight)
+		}
+
+		// add*
+		for _,n := range g.vertices[removed.Name].nbrs {
+			if visited[n.key] {
+				continue
+			}
+			edgeWt := g.getEdgeByVertices(n.key, removed.Name)
+			heap.Push(&q, &Path{Name: n.key, AcquiredVertex: removed.Name, Weight: edgeWt, Index: q.Len()})
+		}
+	}
+}
+
 // DFS
 
 func (g *Graph) hasPath(src, dest int, visited []bool) bool {

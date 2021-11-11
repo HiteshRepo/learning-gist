@@ -4,6 +4,7 @@ type Path struct {
 	Name int
 	Weight int
 	Psf string
+	AcquiredVertex int
 
 	Index int
 }
