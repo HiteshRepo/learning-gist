@@ -28,7 +28,7 @@ func main() {
 	//dijkstra()
 	//prims()
 	//topologicalSortDemo()
-	iterativeDFSDemo()
+	//iterativeDFSDemo()
 
 
 	// <----- DFS ----->
@@ -39,6 +39,11 @@ func main() {
 	//perfectFriends()
 	//hamiltonianPathAndCycles()
 	//knightsTour()
+
+	// leetcode tests
+	canFinishCoursesTest()
+
+
 }
 
 // BFS solutions
@@ -569,4 +574,25 @@ func iterativeDFSDemo() {
 	src := 2
 	graph.iterativeDFS(src)
 }
+
+// leetcode solutions
+
+func canFinishCoursesTest() {
+	tcs := map[string]map[int][][]int {
+		"tc1": {2: {{1,0}, {0,1}}},
+		"tc2": {2: {{1,0}}},
+		"tc3": {2: {{0,1}}},
+		"tc4": {20: {{0,10}, {3,18}, {5,5}, {6,11}, {11,14}, {13,1}, {15,1}, {17,4}}},
+		"tc5": {2: {{1,0}, {0,1}}},
+		"tc6": {3: {{0,2}, {1,2}, {2,0}}},
+	}
+
+	for tc, input := range tcs {
+		for numOfCourses, preReqs := range input {
+			fmt.Printf("Running test case: %s\n", tc)
+			fmt.Printf("can these courses be finished? : %v\n", canFinish(numOfCourses, preReqs))
+		}
+	}
+}
+
 
