@@ -41,8 +41,8 @@ func main() {
 	//knightsTour()
 
 	// leetcode tests
-	canFinishCoursesTest()
-
+	//canFinishCoursesTest()
+	checkBipartiteTest()
 
 }
 
@@ -592,6 +592,20 @@ func canFinishCoursesTest() {
 			fmt.Printf("Running test case: %s\n", tc)
 			fmt.Printf("can these courses be finished? : %v\n", canFinish(numOfCourses, preReqs))
 		}
+	}
+}
+
+func checkBipartiteTest() {
+	tcs := map[string][][]int {
+		"tc1": {{1,2,3}, {0,2}, {0,1,3}, {0,2}},
+		"tc2": {{1,3}, {0,2}, {1,3}, {0,2}},
+		"tc3": {{4,1}, {0,2}, {1,3}, {2,4}, {3,0}},
+		"tc4": {{1,2,3},{0,3,4},{0,3},{0,1,2},{1}},
+	}
+
+	for tc, input := range tcs {
+		fmt.Printf("Running test case: %s\n", tc)
+		fmt.Printf("is this graph bipartite? : %v\n", isBipartite(input))
 	}
 }
 
