@@ -47,7 +47,7 @@ func main() {
 	// leetcode tests
 	//canFinishCoursesTest()
 	//checkBipartiteTest()
-	cheapestFlightTest()
+	//cheapestFlightTest()
 
 }
 
