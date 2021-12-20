@@ -1,0 +1,7 @@
+fileignoreconfig:
+- filename: DSAlgo/AdventOfCode/day9/dist/input.txt
+  checksum: a27c9006c70f4307e7face8f67887f718dd2503654dcdc962bea42e0da55c123
+- filename: DSAlgo/.idea/workspace.xml
+  checksum: d2ea243bfb240ccd89f8cd413b3eafe89e35ec3206018172b50eeef900183e39
+- filename: DSAlgo/AdventOfCode/day14/polymertization.py
+  checksum: 0db93aa2f5ba99f35811dc33f0a84aad1f0e4a8ebed3dc65a494161aa5dfb192
