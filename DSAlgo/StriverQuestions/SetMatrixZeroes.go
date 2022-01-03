@@ -5,7 +5,7 @@ import (
 	"github.com/StriverQuestions/utils"
 )
 
-func setZeroes(matrix [][]int)  {
+func setZeroes(matrix [][]int) {
 	positions := make([][]int, 0)
 	for i, row := range matrix {
 		for j, elem := range row {
@@ -15,7 +15,7 @@ func setZeroes(matrix [][]int)  {
 			}
 		}
 	}
-	for _, pos := range positions{
+	for _, pos := range positions {
 		matrix[pos[0]][pos[1]] = 0
 	}
 }
@@ -36,15 +36,15 @@ func setZeroesInCol(matrix [][]int, colNum int, positions *[][]int) {
 	}
 }
 
-func main() {
-	testCases := map[string]map[string][][]int {
+func runTestsSetMatrixZeroes() {
+	testCases := map[string]map[string][][]int{
 		"tc1": {
-			"input": {{0,1,2,0}, {3,4,5,2}, {1,3,1,5}},
-			"expected": {{0,0,0,0}, {0,4,5,0}, {0,3,1,0}},
+			"input":    {{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}},
+			"expected": {{0, 0, 0, 0}, {0, 4, 5, 0}, {0, 3, 1, 0}},
 		},
 		"tc2": {
-			"input": {{1,1,1}, {1,0,1}, {1,1,1}},
-			"expected": {{1,0,1}, {0,0,0}, {1,0,1}},
+			"input":    {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}},
+			"expected": {{1, 0, 1}, {0, 0, 0}, {1, 0, 1}},
 		},
 	}
 
