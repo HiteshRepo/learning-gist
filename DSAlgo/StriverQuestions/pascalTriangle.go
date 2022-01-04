@@ -28,23 +28,25 @@ func generate(numRows int) [][]int {
     return ans
 }
 
-testCases := map[string]map[string]interface{}{
-		"tc1": {
-			"input":    5,
-      "expected": [][]int{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}},
-		},
-		"tc2": {
-			"input":    1,
-      "expected": [][]int{{1}},
-		},
-	}
+fund runTestsPascalTriangle() {
+	testCases := map[string]map[string]interface{}{
+			"tc1": {
+				"input":    5,
+	      "expected": [][]int{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}},
+			},
+			"tc2": {
+				"input":    1,
+	      "expected": [][]int{{1}},
+			},
+		}
 
-	for name, tc := range testCases {
-		fmt.Printf("running test-case: %s\n", name)
-    input := tc["input"].(int)
-    expected := tc["expected"].([][]int)
-    actual := generate(input)
-		fmt.Println("is solution correct: ", utils.IntMatricesEquals(actual, expected))
+		for name, tc := range testCases {
+			fmt.Printf("running test-case: %s\n", name)
+	    input := tc["input"].(int)
+	    expected := tc["expected"].([][]int)
+	    actual := generate(input)
+			fmt.Println("is solution correct: ", utils.IntMatricesEquals(actual, expected))
+		}
 	}
 }
 
