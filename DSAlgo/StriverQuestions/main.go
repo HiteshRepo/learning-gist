@@ -3,5 +3,6 @@ package main
 func main()  {
 	// runTestsSetMatrixZeroes()
 	// runTestsKadanes()
-	runTestsSortColors()
+	// runTestsSortColors()
+	runTestsPascalTriangle()
 }
