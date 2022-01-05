@@ -5,5 +5,6 @@ func main()  {
 	// runTestsKadanes()
 	// runTestsSortColors()
 	// runTestsPascalTriangle()
-	runTestsNextPermutation()
+	// runTestsNextPermutation()
+	runTestsMaxProfit()
 }
