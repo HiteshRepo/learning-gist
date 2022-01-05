@@ -4,5 +4,6 @@ func main()  {
 	// runTestsSetMatrixZeroes()
 	// runTestsKadanes()
 	// runTestsSortColors()
-	runTestsPascalTriangle()
+	// runTestsPascalTriangle()
+	runTestsNextPermutation()
 }
