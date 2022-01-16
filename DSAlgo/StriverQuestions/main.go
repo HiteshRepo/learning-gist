@@ -7,4 +7,5 @@ func main() {
 	// runTestsPascalTriangle()
 	// runTestsNextPermutation()
 	// runTestsMaxProfit()
+	runTestsForRotateMatrix()
 }
