@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/StriverQuestions/utils"
+	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/utils"
 )
 
 func setZeroes(matrix [][]int) {

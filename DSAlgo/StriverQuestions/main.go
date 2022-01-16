@@ -1,10 +1,10 @@
 package main
 
-func main()  {
+func main() {
 	// runTestsSetMatrixZeroes()
 	// runTestsKadanes()
 	// runTestsSortColors()
 	// runTestsPascalTriangle()
 	// runTestsNextPermutation()
-	runTestsMaxProfit()
+	// runTestsMaxProfit()
 }

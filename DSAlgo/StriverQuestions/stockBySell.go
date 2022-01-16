@@ -1,36 +1,40 @@
+package main
+
+import "fmt"
+
 func maxProfit(prices []int) int {
-    minPrice := int(^uint(0) >> 1)
-    maxProfit := 0
-    for _,p := range prices {
-        if p < minPrice {
-            minPrice = p
-            continue
-        }
-        profit := p - minPrice
-        if profit > maxProfit {
-            maxProfit = profit
-        }
-    }
-    return maxProfit
+	minPrice := int(^uint(0) >> 1)
+	maxProfit := 0
+	for _, p := range prices {
+		if p < minPrice {
+			minPrice = p
+			continue
+		}
+		profit := p - minPrice
+		if profit > maxProfit {
+			maxProfit = profit
+		}
+	}
+	return maxProfit
 }
 
 func runTestsMaxProfit() {
-  testCases := map[string]map[string]interface{}{
+	testCases := map[string]map[string]interface{}{
 		"tc1": {
-			"input":    []int{7,1,5,3,6,4},
+			"input":    []int{7, 1, 5, 3, 6, 4},
 			"expected": 5,
 		},
 		"tc2": {
-			"input":    {7,6,4,3,1},
+			"input":    []int{7, 6, 4, 3, 1},
 			"expected": 0,
 		},
 	}
 
 	for name, tc := range testCases {
 		fmt.Printf("running test-case: %s\n", name)
-    input := tc["input"].([]int)
-    expected := tc["expected"].(int)
-    actual := maxProfit(input)
+		input := tc["input"].([]int)
+		expected := tc["expected"].(int)
+		actual := maxProfit(input)
 		fmt.Println("is solution correct: ", expected == actual)
 	}
 }
