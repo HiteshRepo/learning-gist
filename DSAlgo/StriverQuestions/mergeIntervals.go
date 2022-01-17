@@ -8,7 +8,7 @@ import (
 func merge(intervals [][]int) [][]int {
 	res := make([][]int, 0)
 
-	sort(intervals)
+	sortArr(intervals)
 
 	start := intervals[0][0]
 	end := intervals[0][1]
@@ -39,7 +39,7 @@ func merge(intervals [][]int) [][]int {
 	return res
 }
 
-func sort(arr [][]int) {
+func sortArr(arr [][]int) {
 	count := 0
 	for count < len(arr) {
 		least := arr[count]

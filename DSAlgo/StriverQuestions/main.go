@@ -9,5 +9,6 @@ func main() {
 	// runTestsMaxProfit()
 	// runTestsForRotateMatrix()
 	// runTestsForMergeIntervals()
-	runTestsForMergeSortedArrays()
+	// runTestsForMergeSortedArrays()
+	runTestsFindDuplicates()
 }
