@@ -8,5 +8,6 @@ func main() {
 	// runTestsNextPermutation()
 	// runTestsMaxProfit()
 	// runTestsForRotateMatrix()
-	runTestsForMergeIntervals()
+	// runTestsForMergeIntervals()
+	runTestsForMergeSortedArrays()
 }
