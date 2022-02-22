@@ -1,5 +1,7 @@
 package main
 
+import "github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/array"
+
 func main() {
 	// runTestsSetMatrixZeroes()
 	// runTestsKadanes()
@@ -10,5 +12,9 @@ func main() {
 	// runTestsForRotateMatrix()
 	// runTestsForMergeIntervals()
 	// runTestsForMergeSortedArrays()
-	runTestsFindDuplicates()
+	// runTestsFindDuplicates()
+	//array.RunTestsForSearchMatrixLinear()
+	//array.RunTestsForSearchMatrixRowBinarySearch()
+	//array.RunTestsForSearchMatrixRowFromLastTraverse()
+	array.RunTestsForSearchMatrixConsideringWholeMatrixAsSingleArray()
 }
