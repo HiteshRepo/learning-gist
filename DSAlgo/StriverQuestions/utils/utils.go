@@ -1,5 +1,10 @@
 package utils
 
+import (
+	"math"
+)
+
+
 func IntArrayEquals(a []int, b []int) bool {
 	if len(a) != len(b) {
 		return false
@@ -28,4 +33,12 @@ func IntMatricesEquals(a [][]int, b [][]int) bool {
 		}
 	}
 	return true
+}
+
+func CheckFloatEquals(x, y float64) bool {
+	tolerance := 0.0000001
+	diff := math.Abs(x - y)
+	mean := math.Abs(x + y) / 2.0
+	factor := diff / mean
+	return factor < tolerance
 }
