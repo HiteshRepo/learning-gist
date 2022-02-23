@@ -17,6 +17,8 @@ func main() {
 	// array.RunTestsForSearchMatrixRowBinarySearch()
 	// array.RunTestsForSearchMatrixRowFromLastTraverse()
 	// array.RunTestsForSearchMatrixConsideringWholeMatrixAsSingleArray()
-	array.RunTestsForMyPowBruteForce()
-	array.RunTestsForMyPow_O_N()
+	//array.RunTestsForMyPowBruteForce()
+	//array.RunTestsForMyPow_O_N()
+	//array.RunTestsForMajorityElementGt2UsingFreqMap()
+	array.RunTestsForMajorityElementGt2UsingMooresVoting()
 }
