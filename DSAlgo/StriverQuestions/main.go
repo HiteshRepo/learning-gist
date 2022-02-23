@@ -20,5 +20,6 @@ func main() {
 	//array.RunTestsForMyPowBruteForce()
 	//array.RunTestsForMyPow_O_N()
 	//array.RunTestsForMajorityElementGt2UsingFreqMap()
-	array.RunTestsForMajorityElementGt2UsingMooresVoting()
+	//array.RunTestsForMajorityElementGt2UsingMooresVoting()
+	array.RunTestsForMajorityElementGt3()
 }
