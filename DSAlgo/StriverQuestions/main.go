@@ -21,5 +21,7 @@ func main() {
 	//array.RunTestsForMyPow_O_N()
 	//array.RunTestsForMajorityElementGt2UsingFreqMap()
 	//array.RunTestsForMajorityElementGt2UsingMooresVoting()
-	array.RunTestsForMajorityElementGt3()
+	//array.RunTestsForMajorityElementGt3()
+	//array.RunTestsForUniquePaths()
+	array.RunTestsForUniquePathsDP()
 }
