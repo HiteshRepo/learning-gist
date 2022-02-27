@@ -23,5 +23,7 @@ func main() {
 	//array.RunTestsForMajorityElementGt2UsingMooresVoting()
 	//array.RunTestsForMajorityElementGt3()
 	//array.RunTestsForUniquePaths()
-	array.RunTestsForUniquePathsDP()
+	//array.RunTestsForUniquePathsDP()
+	//array.RunTestsForReversePairsBruteForce()
+	array.RunTestsForReversePairsMergeSort()
 }
