@@ -1,0 +1,11 @@
+Using merge sort:
+1. In merge sort what we do is divide and conquer.
+2. In Divide, we keep on splitting the original array to several arrays of single elements.
+3. In Conquer, we merge those arrays back but this time sort them as well.
+4. For our solution, we will divide the array and while conquering we will figure out our solution.
+5. While merging the sorted arrays,
+    for every element in left array we will find out with how many element of right array it can form reverse pair
+    and that becomes our count for that level.
+6. As we remember from our question, reverse pair should satisfy a[i] > 2*a[j].
+7. In this solution i represents elements in left array while j represents elements in right array
+8. So we add up the counts from each level to find our answer
