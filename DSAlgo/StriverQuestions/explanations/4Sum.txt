@@ -1,0 +1,27 @@
+Brute Force:
+1. 4 pointers: i, j, k and the fourth pointer we will find using binary search
+2. The requirement for binary search is : array needs to be sorted
+3. So 1st step is : sort the array
+4. i will start from 0 to end-3 because we have for pointers
+5. j will start from i+1 to end-2
+6. k will start from j+1 to end-1
+7. 4th pointer, we will find using binary search
+8. when we say that we will find that 4th position, we need a number to be found from rest of the array
+9. Rest of the array because i, j, k will point to a part of array and the rest is where the 4th position belongs
+10. so we will add ith, jth and kth element then subtract it from target to find our forth element
+11. Then we will search that element's presence in the rest of the array
+12. Once we find a combination we will add it to our bucket
+
+Optimized approach:
+1. 4 pointers: i, j, left and right
+2. 1st step : Sort the array
+3. i will start from 0 to end
+4. j will start from i+1 to end
+5. left will start from j+1
+6. right will start from end
+7. we will add left element and right element to see if they are less/more/equal to the element we are looking for
+8. the element we will be looking for is target - (ith and jth element sum)
+9. if equal, add i,j,left and right elements to bucket
+10. if less, move left forward
+11. if more, move right inward
+12. while moving skip the duplicates, this applies for i and j as well

@@ -1,0 +1,14 @@
+Brute Force:
+1. Take 2 pointers: i, j
+2. i at the start points to first element and runs till exhausted
+3. j at the start points to i+1th element and runs till exhausted
+4. 2 nested for loops are used, and we add ith and jth element to see if they match our target
+5. If there is a match we return the i,j positions
+
+Optimized approach:
+1. Here we will use only 1 loop
+2. We will also use a map
+3. i ptr will start from first element and run till exhausted
+4. for ith element, we will look for its complementary (in the map) to meet the target
+    if found -> return the ith position and its complementary's position
+    else -> we store the current ith value and position
