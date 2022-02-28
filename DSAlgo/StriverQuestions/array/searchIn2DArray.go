@@ -56,34 +56,10 @@ func searchMatrixRowFromLastTraverse(matrix [][]int, target int) bool {
 
 func searchMatrixRowBinarySearch(matrix [][]int, target int) bool {
 	for _, row := range matrix {
-		if binarySearch(row, target) {
+		if utils.BinarySearch(row, target) {
 			return true
 		}
 	}
-	return false
-}
-
-func binarySearch(row []int, target int) bool {
-	l := 0
-	r := len(row) - 1
-
-	for l < r {
-		m := (l + (r-1)) / 2
-		if row[m] == target {
-			return true
-		}
-
-		if row[m] < target {
-			l = m+1
-		} else {
-			r = m-1
-		}
-	}
-
-	if l == r {
-		return row[l] == target
-	}
-
 	return false
 }
 

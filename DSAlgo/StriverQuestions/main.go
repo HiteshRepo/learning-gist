@@ -26,6 +26,8 @@ func main() {
 	// array.RunTestsForUniquePathsDP()
 	// array.RunTestsForReversePairsBruteForce()
 	// array.RunTestsForReversePairsMergeSort()
-	array.RunTestCasesForTwoSumBruteForce()
-	array.RunTestCasesForTwoSum()
+	//array.RunTestCasesForTwoSumBruteForce()
+	//array.RunTestCasesForTwoSum()
+	//array.RunTestsFor4SumBruteForce()
+	array.RunTestsFor4SumOptimal()
 }
