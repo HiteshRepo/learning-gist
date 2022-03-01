@@ -29,5 +29,7 @@ func main() {
 	//array.RunTestCasesForTwoSumBruteForce()
 	//array.RunTestCasesForTwoSum()
 	//array.RunTestsFor4SumBruteForce()
-	array.RunTestsFor4SumOptimal()
+	//array.RunTestsFor4SumOptimal()
+	//array.RunTestsForLongestConsecutiveNaive()
+	array.RunTestsForLongestConsecutiveOptimized()
 }

@@ -1,0 +1,17 @@
+Naive approach:
+1. It is mandatory to sort the array
+2. After we sort, we just linearly traverse the array starting from 2nd position till end
+3. While traversing, we compare the current element is 1 greater than previous or not
+4. If they are consecutive then we add the current element to the current sequence
+5. Else we clear the current sequence and restart the current sequence with current element
+6. If current element is equal to previous then we just skip that
+7. Before we reset the current sequence and start with another one, we compare the current sequence length with max length
+
+Optimized approach:
+1. No need to sort the array
+2. We traverse the array once from start to end and put all the elements in a map
+3. We re-traverse the array from start, and we do the following
+    1. If there is an element 1 greater than the current element then we do not do anything and continue with iteration
+    2. If there is not an element 1 greater than the current element then we start back traversing,
+        we look up for element 1 less than current and do it up until we fail to find one and while doing so we keep a count of the trail
+    3. Then we compare the count of the current backward trail with max length
