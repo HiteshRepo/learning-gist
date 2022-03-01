@@ -31,5 +31,6 @@ func main() {
 	//array.RunTestsFor4SumBruteForce()
 	//array.RunTestsFor4SumOptimal()
 	//array.RunTestsForLongestConsecutiveNaive()
-	array.RunTestsForLongestConsecutiveOptimized()
+	//array.RunTestsForLongestConsecutiveOptimized()
+	array.RunTestsForLargestSubArrWithSumZero()
 }

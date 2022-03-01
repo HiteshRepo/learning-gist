@@ -1,0 +1,17 @@
+Approach:
+1. We are going to follow a property that is as follows
+    1. If we take an array, where sum of elements is say S
+    2. If we say that the sum of elements till index i say is S
+    3. Then what would be the sum of rest of the elements, that would be 0. right?
+2. Now we will apply the above property to our given array
+3. We will use 3 things to start with
+    1. we need a map to store sum until now and its index
+    2. we need a variable to track maximumLength
+    3. we need a variable to store prefix sum
+4. Given an array of 1,-1,3,2,-2,-8,1,7,10,2,3
+5. we will increment the prefixSum by the element
+6. we will check if the prefixSum till this point is 0 or not
+7. if it is zero, then we just increase our maxLen
+8. else we check if the prefixSum is present in the bucket or not
+9. if present, then we apply our principle and subtract the current index with stored prefixSum's index to get length of the current '0 sum sub-array'
+10. Also, we compare it with maxLen and update it if greater
