@@ -1,0 +1,17 @@
+BruteForce Approach:
+1. Using Kadanes Algo, we find out all possible sub arrays for the given array - This is going to cost us O(n^2)
+2. Then we iterate through all those sub arrays and find out XOR for each sub array
+3. If the XOR of a sub array is equals to the expected XOR, then we increase our count by 1
+4. Finally, we return the count
+
+Optimized approach:
+1. We traverse the input array linearly from start to end
+2. Then as we traverse, we keep track of prefix XOR which will be computed at each iteration
+3. First we will check if the prefix XOR matches the expected XOR, we increase our count by 1
+4. Then we compute supplementXOR (it means what is the number required that when XOR'd with prefix XOR will give us expected XOR)
+5. How de we compute the supplementXOR? - we do it by doing a XOR b/w prefix XOR and expected XOR
+6. Once we have the supplement XOR, we check if it is present in the XORStore (which is a map)
+7. If it is present in XORStore, we get its count and add it to our ongoing count
+8. We also check if the prefix XOR is present in XORStore
+9. If present we increment its count, else assign it as count 1
+10. Finally, we return the ongoing count

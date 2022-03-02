@@ -11,3 +11,7 @@ func CheckFloatEquals(x, y float64) bool {
 	factor := diff / mean
 	return factor < tolerance
 }
+
+func IntCalculateXOR(X, Y int) int {
+	return X ^ Y
+}
