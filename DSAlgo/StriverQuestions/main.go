@@ -36,6 +36,8 @@ func main() {
 	// log.Println(utils.GenerateSubArrayUsingKadanesN3([]int{2,3,4}))
 	// log.Println(utils.GenerateSubArrayUsingKadanesN2([]int{2,3,4}))
 	// log.Println(utils.IntCalculateXOR(6, 2))
-	//array.RunTestsForFindSubArrForGivenXor()
-	array.RunTestsForFindSubArrForGivenXorOptimized()
+	// array.RunTestsForFindSubArrForGivenXor()
+	// array.RunTestsForFindSubArrForGivenXorOptimized()
+	// array.RunTestsForLengthOfLongestSubstring()
+	array.RunTestsForLengthOfLongestSubstringOptimized()
 }

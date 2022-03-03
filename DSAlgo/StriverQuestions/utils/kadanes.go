@@ -39,3 +39,23 @@ func GenerateSubArrayUsingKadanesN2(arr []int) [][]int {
 
 	return subArrs
 }
+
+func GenerateSubArrayUsingKadanesN2String(arr []rune) [][]rune {
+	subArrs := make([][]rune,0)
+
+	for i:=0; i< len(arr); i++ {
+		subArr := make([]rune, 0)
+		subArr = append(subArr, arr[i])
+		if !RuneIsArrayInMatrix(subArrs, subArr) {
+			subArrs = append(subArrs, subArr)
+		}
+		for j:=i+1; j<len(arr); j++ {
+			subArr = append(subArr, arr[j])
+			if !RuneIsArrayInMatrix(subArrs, subArr) {
+				subArrs = append(subArrs, subArr)
+			}
+		}
+	}
+
+	return subArrs
+}

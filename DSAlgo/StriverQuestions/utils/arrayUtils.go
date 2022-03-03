@@ -54,6 +54,18 @@ func IntArrayElementsEqualsExact(a []int, b []int) bool {
 	return true
 }
 
+func RuneArrayElementsEqualsExact(a []rune, b []rune) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i, v := range a {
+		if b[i] != v {
+			return false
+		}
+	}
+	return true
+}
+
 func IntIsElementIn(nums []int, num int) bool {
 	for _, n := range nums {
 		if n == num {
@@ -85,6 +97,20 @@ func IntIsArrayInMatrix(a [][]int, b []int) bool {
 
 	for _, row1 := range a {
 		if IntArrayElementsEqualsExact(b, row1) {
+			return true
+		}
+	}
+
+	return false
+}
+
+func RuneIsArrayInMatrix(a [][]rune, b []rune) bool {
+	if len(a) == 0 || len(b) == 0 {
+		return false
+	}
+
+	for _, row1 := range a {
+		if RuneArrayElementsEqualsExact(b, row1) {
 			return true
 		}
 	}

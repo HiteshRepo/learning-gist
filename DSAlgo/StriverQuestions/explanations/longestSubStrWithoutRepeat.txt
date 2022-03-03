@@ -1,0 +1,19 @@
+Brute Force:
+1. First get all possible substrings of the string - it is going to take O(N^3) / O(N^2) depending on which version of Kadane's algo is used
+2. Then iterate over the array of substrings
+3. For each substring check if there are repeating characters
+4. If present then ignore that substring
+5. Else compute the length of it and then compare it with maxLen, update the maxLen if required
+6. At the end we return maxLen
+
+Optimized:
+1. We have 2 pointers - l and r
+2. We have a set
+3. Both l and r starts from 0
+4. We iterate till l < len(string} && r<len(string) && l <= r
+5. We pick the character at r -> check if it exists in the set
+6. If it does not exist, we compute the current length using formula r-l+1 and then compare it with maxLen, update the maxLen if required
+7. If it exists, we remove character at l in input string from the set, and we increase l by 1
+8. We keep doing this till the character at r is still present in the set
+9. Finally, we compute the current length using formula r-l+1 and then compare it with maxLen, update the maxLen if required
+10. At the end we return maxLen
