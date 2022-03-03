@@ -1,0 +1,19 @@
+Brute Force:
+1. Find all sub arrays - O(N^2) / O(N^3)
+2. Find sum of each sub array
+3. Get the maximum sum and return
+
+Optimized:
+1. Linear traversal of array
+2. We take currentSum = 0, maxSum = first element of array
+3. As we traverse the array we add the current element with the currentSum
+4. Then we check the result with maxSum, update maxSum if greater than it
+5. Then we check if sum is less than 0, if yes we update currentSum as 0
+6. Finally, we return maxSum
+
+Intuition:
+1. At first, the maxSum is the first element,
+    and the first element is itself a sub array,
+    so basically initially we are considering first sub array to have max sum
+2. As we traverse and add current element and track current sum, we basically are computing current subarray's sum and checking with max sum sub array
+3. We restore it to 0 when it becomes negative, because it wont increase our sum going forward
