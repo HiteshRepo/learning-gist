@@ -39,5 +39,6 @@ func main() {
 	// array.RunTestsForFindSubArrForGivenXor()
 	// array.RunTestsForFindSubArrForGivenXorOptimized()
 	// array.RunTestsForLengthOfLongestSubstring()
-	array.RunTestsForLengthOfLongestSubstringOptimized()
+	// array.RunTestsForLengthOfLongestSubstringOptimized()
+	array.RunTestsSetMatrixZeroesOptimized()
 }

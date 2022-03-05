@@ -1,0 +1,13 @@
+Brute force:
+1. Traverse over the entire matrix
+2. Whenever a zero is encountered, traverse through its row and column and replace the value with anything other than 0,1 say -1
+3. But do not replace O with anything, because we might miss its impact on other rows and columns
+4. Change all the -1 to 0
+5. (m*n) + (m+n)
+
+Optimized:
+1. Take 2 dummy matrices, one matrix of size equal to size of row and another equal to size of column
+2. Traverse linearly over the matrix
+3. If you find a zero, then mark the corresponding row array and column array as 0
+4. Then traverse over the matrix again, check the dummy arrays
+5. If any one of them has a 0, then make it as 0.
