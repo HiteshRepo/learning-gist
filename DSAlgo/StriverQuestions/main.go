@@ -3,9 +3,7 @@ package main
 import "github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/array"
 
 func main() {
-	// runTestsSortColors()
 	// runTestsNextPermutation()
-	// runTestsMaxProfit()
 	// runTestsForRotateMatrix()
 	// runTestsForMergeIntervals()
 	// runTestsForMergeSortedArrays()
@@ -42,5 +40,7 @@ func main() {
 	// array.RunTestsPascalTriangleNumberAtRowColumn()
 	// array.RunTestsPascalTriangleNthRow()
 	// array.RunTestsNextPermutation()
-	array.RunTestsSortColors()
+	// array.RunTestsSortColors()
+	// array.RunTestsMaxProfitBruteForce()
+	array.RunTestsMaxProfitOptimized()
 }

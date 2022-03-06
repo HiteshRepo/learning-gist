@@ -1,0 +1,10 @@
+Brute force:
+1. for every i check if there is any element greater than it and what is the max positive difference
+2. return the max difference which will be max profit
+3. O(n2)
+
+Optimized:
+1. linearly traverse the array
+2. keep track of min price
+3. also keep track for max profit, current day's price - minPrice
+4. return maxProfit
