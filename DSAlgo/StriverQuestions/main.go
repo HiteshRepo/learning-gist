@@ -3,10 +3,7 @@ package main
 import "github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/array"
 
 func main() {
-	// runTestsSetMatrixZeroes()
-	// runTestsKadanes()
 	// runTestsSortColors()
-	// runTestsPascalTriangle()
 	// runTestsNextPermutation()
 	// runTestsMaxProfit()
 	// runTestsForRotateMatrix()
@@ -43,5 +40,6 @@ func main() {
 	// array.RunTestsSetMatrixZeroesOptimized()
 	// array.RunTestsPascalTriangle()
 	// array.RunTestsPascalTriangleNumberAtRowColumn()
-	array.RunTestsPascalTriangleNthRow()
+	// array.RunTestsPascalTriangleNthRow()
+	array.RunTestsNextPermutation()
 }

@@ -1,4 +1,4 @@
-package main
+package array
 
 import (
 	"fmt"
@@ -45,7 +45,7 @@ func reverse(nums []int, start, end int) {
 	}
 }
 
-func runTestsNextPermutation() {
+func RunTestsNextPermutation() {
 	testCases := map[string]map[string][]int{
 		"tc1": {
 			"input":    {1, 2, 3},

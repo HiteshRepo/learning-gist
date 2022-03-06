@@ -1,0 +1,11 @@
+Brute Force:
+
+
+Optimized:
+1. We can solve this in 5 steps
+2. 1st step: iterate linearly backward from last element, and find the index where a[i] < a[i+1], say the index is 'x' index
+    - This is basically where we find the prefix, we will understand the intuition later
+3. 2nd step: again iterate linearly backward from last element, and find the index where a[i] > a[x]m say the index is 'y' index
+    - This is basically where we find the next element to prefix, we will understand this later as well
+4. 3rd step: Swap the elements at index 'x' and 'y'
+5. 4th step: Reverse the elements after index 'x'
