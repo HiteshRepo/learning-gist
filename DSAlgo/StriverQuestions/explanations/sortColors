@@ -1,0 +1,21 @@
+Sort the array:
+1. Time complexity: O(nlogn)
+
+Counting sort solution:
+1. Traverse the array linearly from start to finish
+2. Count the zeroes, ones and twos
+3. Create a new array with zeroes, ones and twos in order
+4. Space complexity is O(n)
+
+
+In place solution (Dutch Flag):
+1. Place low, mid pointer at start
+2. Place high pointer at end
+3.  0 to low-1 -> 0s
+    high+1 to n -> 2s
+    low to high -> 1s
+4. Iterate till mid <= high
+5. 3 checks
+    mid points to 0 -> swap a[low], a[mid], low and mid increase by 1
+    mid points to 1 -> mid+=1
+    mid points to 2 -> swap a[mid], a[high], mid and high increase by 1

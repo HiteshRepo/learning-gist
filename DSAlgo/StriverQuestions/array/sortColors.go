@@ -1,4 +1,4 @@
-package main
+package array
 
 import (
 	"fmt"
@@ -68,7 +68,7 @@ func swapColors(i, j int, nums []int) {
 	nums[i], nums[j] = nums[j], nums[i]
 }
 
-func runTestsSortColors() {
+func RunTestsSortColors() {
 	testCases := map[string]map[string][]int{
 		"tc1": {
 			"input":    {2, 0, 2, 1, 1, 0},

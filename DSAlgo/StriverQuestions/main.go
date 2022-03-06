@@ -41,5 +41,6 @@ func main() {
 	// array.RunTestsPascalTriangle()
 	// array.RunTestsPascalTriangleNumberAtRowColumn()
 	// array.RunTestsPascalTriangleNthRow()
-	array.RunTestsNextPermutation()
+	// array.RunTestsNextPermutation()
+	array.RunTestsSortColors()
 }
