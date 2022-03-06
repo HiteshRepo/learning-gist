@@ -1,0 +1,13 @@
+Observations & Create pascals triangle:
+    Always 1st and last column of every column is 1
+    Middle elements are formed by adding upper rows consecutive elements
+    Every row num has that many columns, 5th row has 5 columns
+
+Element at 5th Row and 3rd Column:
+    Formula: R-1 C C-1 = 4 C 2 = 4*3 / 2*1 = 6
+
+Print nTh row
+    Brute force: nCr for each column of nTh row - O(n2)
+    Optimized: n * n-i / i+1 -> nCr of of 0th column followed by a pattern of multiplying something and divide something
+
+

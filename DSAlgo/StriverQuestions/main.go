@@ -40,5 +40,8 @@ func main() {
 	// array.RunTestsForFindSubArrForGivenXorOptimized()
 	// array.RunTestsForLengthOfLongestSubstring()
 	// array.RunTestsForLengthOfLongestSubstringOptimized()
-	array.RunTestsSetMatrixZeroesOptimized()
+	// array.RunTestsSetMatrixZeroesOptimized()
+	// array.RunTestsPascalTriangle()
+	// array.RunTestsPascalTriangleNumberAtRowColumn()
+	array.RunTestsPascalTriangleNthRow()
 }
