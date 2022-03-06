@@ -1,0 +1,33 @@
+Brute force:
+1. Traverse the whole matrix linearly
+2. If target found, return true
+3. Else return false
+4. O(n2)
+
+Binary search:
+1. Traverse each row of a matrix
+2. Do a binary search on each row
+3. If target found, return true
+4. Else return false
+5. O(n*nlogn)
+
+From Last Column Traverse:
+1. Two pointers, row = 0, columns = last
+2. Iterate till rows are exhausted and column >= 0
+3. If target == matrix[row][column] -> return true
+4. If target > matrix[row][column] ->
+    it means, the target might be in the row somewhere before the current column
+    so decrease column by 1
+5. If target < matrix[row][column] ->
+    it means, target is no longer available in the current row,
+    so we increase the row to next
+    but we do not reset the column to last of that row because we know that the columns are sorted too
+
+Search Matrix Considering Whole Matrix As a Single Array:
+1. Kind of binary search
+2. Two pointers, low points to first element of matrix and high points to last element of matrix
+3. Iterate till low < high
+4. Find mid
+5. But mid's position is calculated by formula m/len(matrix[0]), m%len(matrix[0])
+6. If mid element is greater than target, then high points to mid-1
+7. Else low points to mid+1

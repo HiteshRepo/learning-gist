@@ -88,6 +88,7 @@ func RunTestsForSearchMatrixLinear() {
 	}
 }
 
+// RunTestsForSearchMatrixRowFromLastTraverse possible only if array is sorted row wise and column wise
 func RunTestsForSearchMatrixRowFromLastTraverse() {
 	testCases := getTestCases()
 

@@ -10,7 +10,7 @@ func main() {
 	// runTestsFindDuplicates()
 	// array.RunTestsForSearchMatrixLinear()
 	// array.RunTestsForSearchMatrixRowBinarySearch()
-	// array.RunTestsForSearchMatrixRowFromLastTraverse()
+	array.RunTestsForSearchMatrixRowFromLastTraverse()
 	// array.RunTestsForSearchMatrixConsideringWholeMatrixAsSingleArray()
 	// array.RunTestsForMyPowBruteForce()
 	// array.RunTestsForMyPow_O_N()
@@ -42,5 +42,5 @@ func main() {
 	// array.RunTestsNextPermutation()
 	// array.RunTestsSortColors()
 	// array.RunTestsMaxProfitBruteForce()
-	array.RunTestsMaxProfitOptimized()
+	// array.RunTestsMaxProfitOptimized()
 }
