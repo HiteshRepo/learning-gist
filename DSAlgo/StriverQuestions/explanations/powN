@@ -1,0 +1,13 @@
+Brute force:
+1. Just iterate from 0 to n
+2. While iterating multiply the number with itself
+3. Edge case: if n is negative, divide 1 by ans
+4. Return ans
+5. O(n)
+
+Optimized:
+1. Just iterate from n to 0
+2. If n is even, decrease it by half, multiply number's pow till now with number's pow till now
+3. If n is odd, decrease it by 1, multiply number's pow till now with itself
+4. Edge case: if n is negative, divide 1 by ans
+5. Return ans
