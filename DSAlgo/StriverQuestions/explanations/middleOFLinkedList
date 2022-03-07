@@ -1,0 +1,12 @@
+Approach1:
+1. We will traverse the linked list first from start to end
+2. This is to count number of nodes
+3. Once we have the count, we shall find the mid. Which is count/2, if count is odd, we add 1 to the mid
+4. We again traverse the linked list from start but this time the break point is when we reach the mid
+5. As soon as we reach mid, we return the mid node
+
+Optimized approach [tortoise method]:
+1. We take two pointers call slow and fast
+2. We move slow by 1 node every iteration
+3. We move fast by 2 nodes every iteration
+4. So the idea is, when the fast reaches the last node, the slow would be at the middle because fast moves by 2 everytime while slow moves by 1

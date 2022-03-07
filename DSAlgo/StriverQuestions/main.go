@@ -8,7 +8,9 @@ func main() {
 	//head.Display()
 
 	//linkedlist.RunTestsForReverseLinkedListIterative()
-	linkedlist.RunTestsForReverseLinkedListRecursive()
+	//linkedlist.RunTestsForReverseLinkedListRecursive()
+	//linkedlist.RunTestsForMiddleOfLinkedList()
+	linkedlist.RunTestsForMiddleOfLinkedListOptimized()
 }
 
 func arrayRuns() {
