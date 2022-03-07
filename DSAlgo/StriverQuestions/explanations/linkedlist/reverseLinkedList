@@ -1,0 +1,25 @@
+Iterative:
+1. We take 3 pointers -> prevNode, currNode and nextNode
+2. Using loop we traverse the linked list
+3. The condition of the loop would be that, the loop will continue till nextNode becomes nil
+4. At beginning currNode and nextNode will point to the node at head
+5. At the same time prevNode will point to null
+6. Within the loop we are going to perform below operations:
+    a. nextNode = currNode.Next
+    b. nextNode.next = prevNode -> This is where we reverse the link
+    c. prevNode = currNode
+    d. currNode = nextNode
+7. We point the head node to prevNode, prevNode will be at last node of the list
+
+Recursive:
+1. Here also we will iterate through the linkedList but in a recursive way
+2. We will be doing operation only on back tracking
+3. So the operation that we will be doing on back tracking is actually reversing the link
+4. Likewise in iterative we had loop breaking condition similarly for recursive we are going to have a return condition
+5. That return condition is if node.Next == nil, we will return the node itself if that condition is met
+6. And we are going to consider the returned node as head as it points to the last node
+7. The operations that we are going to do while backtracking are as follows:
+    a. We will have a new pointer and we will assign currNode.next to it
+    b. newNode.next = currNode
+    c. currNode.next = null
+8. And we return the head that we had stored in the very first backtracking

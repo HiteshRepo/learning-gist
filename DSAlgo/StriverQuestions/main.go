@@ -1,8 +1,17 @@
 package main
 
-import "github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/array"
+import "github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
 
 func main() {
+	//arr := []int{1,2,3,4}
+	//head := linkedlist.CreateFromArray(arr)
+	//head.Display()
+
+	//linkedlist.RunTestsForReverseLinkedListIterative()
+	linkedlist.RunTestsForReverseLinkedListRecursive()
+}
+
+func arrayRuns() {
 	// runTestsNextPermutation()
 	// runTestsForRotateMatrix()
 	// runTestsForMergeIntervals()
@@ -10,7 +19,7 @@ func main() {
 	// runTestsFindDuplicates()
 	// array.RunTestsForSearchMatrixLinear()
 	// array.RunTestsForSearchMatrixRowBinarySearch()
-	array.RunTestsForSearchMatrixRowFromLastTraverse()
+	// array.RunTestsForSearchMatrixRowFromLastTraverse()
 	// array.RunTestsForSearchMatrixConsideringWholeMatrixAsSingleArray()
 	// array.RunTestsForMyPowBruteForce()
 	// array.RunTestsForMyPow_O_N()
