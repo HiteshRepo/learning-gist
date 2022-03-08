@@ -15,7 +15,7 @@ func NewListNode(val int, next *ListNode) *ListNode {
 }
 
 func CreateFromArray(arr []int) *ListNode {
-	head := &ListNode{}
+	var head *ListNode
 
 	var prev *ListNode
 	for i, n := range arr {

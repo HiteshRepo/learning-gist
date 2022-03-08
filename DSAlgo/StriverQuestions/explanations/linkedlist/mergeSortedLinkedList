@@ -1,0 +1,25 @@
+Approach1:
+1. Create 2 nodes: head, prev. Both would point to null at the beginning
+2. Loop through list1 and list2 based on condition: list1 != nil and list2 != nil
+3. Within iteration the operations need to be performed are as below:
+    a. if list1.next > list2.next then create a new dummy node and store the value of list2 in it
+    b. if list2.next > list1.next then create a new dummy node and store the value of list1 in it
+    c. if list1.next == list2.next then create 2 new dummy nodes and store the value of list1 in dummy node 1 and list2's value in dummy node 2
+        and point dummy node 1's next to dummy node 2
+    d. assign dummy node1 to prevNode
+    e. if head is nil, assign prevNode to head
+    f. iterate through prevNode until prevNode.Next = nil
+
+In Place:
+1. if list1 is null then return list2
+2. if list2 is null then return list1
+3. ensure list1 always has the smallest 1st element ->
+    to do this check if list1's first element is greater than list2's first element
+    if list1's first element is greater then swap the lists
+4. point head to l1
+5. loop till list1 and list2 is exhausted
+6. loop again through list1 (remember we need to ensure list1 always has 1st element shorter) till list2 has a shorter element that list1
+7. within the nested loop keep pointing temp to current list1
+8. once list2 shorter element is found, break the inner loop
+9. point tmp.next to list2
+10 swap list1 and list2 to again make list1 the shorter one
