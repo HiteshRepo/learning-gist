@@ -1,12 +1,10 @@
 package reverse
 
 import (
-	"fmt"
 	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
-	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/utils"
 )
 
-func reverseListRecursive(head *linkedlist.ListNode) *linkedlist.ListNode {
+func ReverseListRecursive(head *linkedlist.ListNode) *linkedlist.ListNode {
 	node := head
 	return reverseList(node)
 }
@@ -24,7 +22,7 @@ func reverseList(node *linkedlist.ListNode) *linkedlist.ListNode {
 	return head
 }
 
-func reverseListIterative(head *linkedlist.ListNode) *linkedlist.ListNode {
+func ReverseListIterative(head *linkedlist.ListNode) *linkedlist.ListNode {
 	var prevNode *linkedlist.ListNode
 	var currNode *linkedlist.ListNode
 	var nextNode *linkedlist.ListNode
@@ -42,49 +40,4 @@ func reverseListIterative(head *linkedlist.ListNode) *linkedlist.ListNode {
 	head = prevNode
 
 	return head
-}
-
-func RunTestsForReverseLinkedListIterative()  {
-	tcs := getTestCases()
-
-	for name, tc := range tcs {
-		input := tc["input"].([]int)
-		head := linkedlist.CreateFromArray(input)
-
-		expected := tc["expected"].([]int)
-
-		reversedHead :=  reverseListIterative(head)
-		actual := reversedHead.GetArrayFromLinkedList()
-
-		fmt.Printf("Is the solution correct for testcase %s : %v\n", name, utils.IntArrayEquals(expected, actual))
-	}
-}
-
-func RunTestsForReverseLinkedListRecursive()  {
-	tcs := getTestCases()
-
-	for name, tc := range tcs {
-		input := tc["input"].([]int)
-		head := linkedlist.CreateFromArray(input)
-
-		expected := tc["expected"].([]int)
-
-		reversedHead :=  reverseListRecursive(head)
-		actual := reversedHead.GetArrayFromLinkedList()
-
-		fmt.Printf("Is the solution correct for testcase %s : %v\n", name, utils.IntArrayEquals(expected, actual))
-	}
-}
-
-func getTestCases() map[string]map[string]interface{} {
-	return map[string]map[string]interface{}{
-		"tc1": {
-			"input": []int{1,2,3,4,5},
-			"expected": []int{5,4,3,2,1},
-		},
-		"tc2": {
-			"input": []int{1,2},
-			"expected": []int{2,1},
-		},
-	}
 }
