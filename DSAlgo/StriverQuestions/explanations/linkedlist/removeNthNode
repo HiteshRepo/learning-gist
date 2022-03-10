@@ -1,0 +1,8 @@
+Solution:
+1. We create a node that points to head. Remember that, the node is not itself head rather points to head.
+2. We assign start to both fast and slow pointers.
+3. We iterate fast till we reach given n.
+4. We iterate both slow and fast till fast is nil.
+5. If n == length of the list, then we just assign head = head.next and return head.
+    Because if n == length of list, that means the first node is to be removed
+6. Else we assign slow.Next = slow.Next.Next and return head

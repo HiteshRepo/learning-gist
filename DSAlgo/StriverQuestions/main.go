@@ -4,13 +4,6 @@ func main() {
 	// arr := []int{1,2,3,4}
 	// head := linkedlist.CreateFromArray(arr)
 	// head.Display()
-
-	// linkedlist.RunTestsForReverseLinkedListIterative()
-	// linkedlist.RunTestsForReverseLinkedListRecursive()
-	// linkedlist.RunTestsForMiddleOfLinkedList()
-	// linkedlist.RunTestsForMiddleOfLinkedListOptimized()
-	// linkedlist.RunTestsForMergeTwoSortedLinkedLists()
-	// linkedlist.RunTestsForMergeTwoSortedLinkedListsInPlace()
 }
 
 func arrayRuns() {
