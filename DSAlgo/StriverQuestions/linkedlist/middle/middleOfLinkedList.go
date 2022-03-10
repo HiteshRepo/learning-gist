@@ -1,11 +1,12 @@
-package linkedlist
+package middle
 
 import (
 	"fmt"
+	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
 	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/utils"
 )
 
-func middleNodeOptimized(head *ListNode) *ListNode {
+func middleNodeOptimized(head *linkedlist.ListNode) *linkedlist.ListNode {
 	fast := head
 	slow := head
 
@@ -17,7 +18,7 @@ func middleNodeOptimized(head *ListNode) *ListNode {
 	return slow
 }
 
-func middleNode(head *ListNode) *ListNode {
+func middleNode(head *linkedlist.ListNode) *linkedlist.ListNode {
 	tempNode := head
 
 	countNodes := 0
@@ -48,7 +49,7 @@ func RunTestsForMiddleOfLinkedList()  {
 
 	for name, tc := range tcs {
 		input := tc["input"].([]int)
-		head := CreateFromArray(input)
+		head := linkedlist.CreateFromArray(input)
 
 		expected := tc["expected"].([]int)
 
@@ -64,7 +65,7 @@ func RunTestsForMiddleOfLinkedListOptimized()  {
 
 	for name, tc := range tcs {
 		input := tc["input"].([]int)
-		head := CreateFromArray(input)
+		head := linkedlist.CreateFromArray(input)
 
 		expected := tc["expected"].([]int)
 

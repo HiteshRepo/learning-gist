@@ -1,16 +1,17 @@
-package linkedlist
+package reverse
 
 import (
 	"fmt"
+	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
 	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/utils"
 )
 
-func reverseListRecursive(head *ListNode) *ListNode {
+func reverseListRecursive(head *linkedlist.ListNode) *linkedlist.ListNode {
 	node := head
 	return reverseList(node)
 }
 
-func reverseList(node *ListNode) *ListNode {
+func reverseList(node *linkedlist.ListNode) *linkedlist.ListNode {
 	if node.Next == nil {
 		return node
 	}
@@ -23,10 +24,10 @@ func reverseList(node *ListNode) *ListNode {
 	return head
 }
 
-func reverseListIterative(head *ListNode) *ListNode {
-	var prevNode *ListNode
-	var currNode *ListNode
-	var nextNode *ListNode
+func reverseListIterative(head *linkedlist.ListNode) *linkedlist.ListNode {
+	var prevNode *linkedlist.ListNode
+	var currNode *linkedlist.ListNode
+	var nextNode *linkedlist.ListNode
 
 	currNode = head
 	nextNode = head
@@ -48,7 +49,7 @@ func RunTestsForReverseLinkedListIterative()  {
 
 	for name, tc := range tcs {
 		input := tc["input"].([]int)
-		head := CreateFromArray(input)
+		head := linkedlist.CreateFromArray(input)
 
 		expected := tc["expected"].([]int)
 
@@ -64,7 +65,7 @@ func RunTestsForReverseLinkedListRecursive()  {
 
 	for name, tc := range tcs {
 		input := tc["input"].([]int)
-		head := CreateFromArray(input)
+		head := linkedlist.CreateFromArray(input)
 
 		expected := tc["expected"].([]int)
 

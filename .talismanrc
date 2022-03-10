@@ -6,4 +6,4 @@ fileignoreconfig:
 - filename: DSAlgo/AdventOfCode/day14/polymertization.py
   checksum: 0db93aa2f5ba99f35811dc33f0a84aad1f0e4a8ebed3dc65a494161aa5dfb192
 - filename: DSAlgo/StriverQuestions/go.sum
-  checksum: a11afa57cb23c3ca8255734254ea0b1cf5aa5403a98894e39e909e715f359b2e
+  checksum: 21f62a2232ffb9f6f81cd2c7c5dca424f93d1126a4689f97792664e96724c28d

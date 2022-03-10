@@ -1,11 +1,12 @@
-package linkedlist
+package merge_sorted
 
 import (
 	"fmt"
+	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
 	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/utils"
 )
 
-func mergeTwoListsInPlace(list1 *ListNode, list2 *ListNode) *ListNode {
+func mergeTwoListsInPlace(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode) *linkedlist.ListNode {
 	if list1 == nil {
 		return list2
 	}
@@ -23,7 +24,7 @@ func mergeTwoListsInPlace(list1 *ListNode, list2 *ListNode) *ListNode {
 	head := list1
 
 	for list1 != nil && list2 != nil {
-		var tmp *ListNode
+		var tmp *linkedlist.ListNode
 		for list1 != nil && list1.Val <= list2.Val {
 			tmp = list1
 			list1 = list1.Next
@@ -38,12 +39,12 @@ func mergeTwoListsInPlace(list1 *ListNode, list2 *ListNode) *ListNode {
 	return head
 }
 
-func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
-	var head *ListNode
-	prevNode := &ListNode{}
+func mergeTwoLists(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode) *linkedlist.ListNode {
+	var head *linkedlist.ListNode
+	prevNode := &linkedlist.ListNode{}
 
 	for list1 != nil && list2 != nil {
-		currNode := &ListNode{}
+		currNode := &linkedlist.ListNode{}
 		if list1.Val > list2.Val {
 			currNode.Val = list2.Val
 			list2 = list2.Next
@@ -51,7 +52,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 			currNode.Val = list1.Val
 			list1 = list1.Next
 		} else if list1.Val == list2.Val {
-			currNode2 := &ListNode{}
+			currNode2 := &linkedlist.ListNode{}
 			currNode.Val = list2.Val
 			currNode2.Val = list1.Val
 			currNode.Next = currNode2
@@ -72,7 +73,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 
 	for list1 != nil {
-		currNode := &ListNode{}
+		currNode := &linkedlist.ListNode{}
 		currNode.Val = list1.Val
 		if head == nil {
 			prevNode = currNode
@@ -89,7 +90,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 
 	for list2 != nil {
-		currNode := &ListNode{}
+		currNode := &linkedlist.ListNode{}
 		currNode.Val = list2.Val
 		if head == nil {
 			prevNode = currNode
@@ -114,8 +115,8 @@ func RunTestsForMergeTwoSortedLinkedLists()  {
 	for name, tc := range tcs {
 		list1 := tc["list1"].([]int)
 		list2 := tc["list2"].([]int)
-		head1 := CreateFromArray(list1)
-		head2 := CreateFromArray(list2)
+		head1 := linkedlist.CreateFromArray(list1)
+		head2 := linkedlist.CreateFromArray(list2)
 
 		expected := tc["expected"].([]int)
 
@@ -132,8 +133,8 @@ func RunTestsForMergeTwoSortedLinkedListsInPlace()  {
 	for name, tc := range tcs {
 		list1 := tc["list1"].([]int)
 		list2 := tc["list2"].([]int)
-		head1 := CreateFromArray(list1)
-		head2 := CreateFromArray(list2)
+		head1 := linkedlist.CreateFromArray(list1)
+		head2 := linkedlist.CreateFromArray(list2)
 
 		expected := tc["expected"].([]int)
 

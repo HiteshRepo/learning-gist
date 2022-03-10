@@ -1,7 +1,5 @@
 package main
 
-import "github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
-
 func main() {
 	// arr := []int{1,2,3,4}
 	// head := linkedlist.CreateFromArray(arr)
@@ -12,7 +10,7 @@ func main() {
 	// linkedlist.RunTestsForMiddleOfLinkedList()
 	// linkedlist.RunTestsForMiddleOfLinkedListOptimized()
 	// linkedlist.RunTestsForMergeTwoSortedLinkedLists()
-	linkedlist.RunTestsForMergeTwoSortedLinkedListsInPlace()
+	// linkedlist.RunTestsForMergeTwoSortedLinkedListsInPlace()
 }
 
 func arrayRuns() {
