@@ -1,12 +1,10 @@
 package middle
 
 import (
-	"fmt"
 	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
-	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/utils"
 )
 
-func middleNodeOptimized(head *linkedlist.ListNode) *linkedlist.ListNode {
+func MiddleNodeOptimized(head *linkedlist.ListNode) *linkedlist.ListNode {
 	fast := head
 	slow := head
 
@@ -18,7 +16,7 @@ func middleNodeOptimized(head *linkedlist.ListNode) *linkedlist.ListNode {
 	return slow
 }
 
-func middleNode(head *linkedlist.ListNode) *linkedlist.ListNode {
+func MiddleNode(head *linkedlist.ListNode) *linkedlist.ListNode {
 	tempNode := head
 
 	countNodes := 0
@@ -44,47 +42,4 @@ func middleNode(head *linkedlist.ListNode) *linkedlist.ListNode {
 	return tempNode
 }
 
-func RunTestsForMiddleOfLinkedList()  {
-	tcs := getTestCasesForMiddleNode()
 
-	for name, tc := range tcs {
-		input := tc["input"].([]int)
-		head := linkedlist.CreateFromArray(input)
-
-		expected := tc["expected"].([]int)
-
-		middleNode :=  middleNode(head)
-		actual := middleNode.GetArrayFromLinkedList()
-
-		fmt.Printf("Is the solution correct for testcase %s : %v\n", name, utils.IntArrayEquals(expected, actual))
-	}
-}
-
-func RunTestsForMiddleOfLinkedListOptimized()  {
-	tcs := getTestCasesForMiddleNode()
-
-	for name, tc := range tcs {
-		input := tc["input"].([]int)
-		head := linkedlist.CreateFromArray(input)
-
-		expected := tc["expected"].([]int)
-
-		middleNode :=  middleNodeOptimized(head)
-		actual := middleNode.GetArrayFromLinkedList()
-
-		fmt.Printf("Is the solution correct for testcase %s : %v\n", name, utils.IntArrayEquals(expected, actual))
-	}
-}
-
-func getTestCasesForMiddleNode() map[string]map[string]interface{} {
-	return map[string]map[string]interface{}{
-		"tc1": {
-			"input": []int{1,2,3,4,5},
-			"expected": []int{3,4,5},
-		},
-		"tc2": {
-			"input": []int{1,2,3,4,5,6},
-			"expected": []int{4,5,6},
-		},
-	}
-}
