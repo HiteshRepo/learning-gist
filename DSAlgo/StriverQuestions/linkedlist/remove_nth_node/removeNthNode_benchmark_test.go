@@ -13,7 +13,6 @@ func Benchmark_RemoveNthNode(b *testing.B) {
 		pos := tc["pos"].(int)
 
 		head := linkedlist.CreateFromArray(input)
-		_ = remove_nth_node.RemoveNthFromEnd(head, pos)
 
 		b.ResetTimer()
 		for n := 0; n < b.N; n++ {

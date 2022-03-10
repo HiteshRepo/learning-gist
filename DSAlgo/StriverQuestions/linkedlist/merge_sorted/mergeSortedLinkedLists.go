@@ -1,12 +1,10 @@
 package merge_sorted
 
 import (
-	"fmt"
 	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/linkedlist"
-	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/utils"
 )
 
-func mergeTwoListsInPlace(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode) *linkedlist.ListNode {
+func MergeTwoListsInPlace(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode) *linkedlist.ListNode {
 	if list1 == nil {
 		return list2
 	}
@@ -39,7 +37,7 @@ func mergeTwoListsInPlace(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode
 	return head
 }
 
-func mergeTwoLists(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode) *linkedlist.ListNode {
+func MergeTwoLists(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode) *linkedlist.ListNode {
 	var head *linkedlist.ListNode
 	prevNode := &linkedlist.ListNode{}
 
@@ -107,65 +105,4 @@ func mergeTwoLists(list1 *linkedlist.ListNode, list2 *linkedlist.ListNode) *link
 	}
 
 	return head
-}
-
-func RunTestsForMergeTwoSortedLinkedLists()  {
-	tcs := getTestCasesForMergeTwoSortedLinkedLists()
-
-	for name, tc := range tcs {
-		list1 := tc["list1"].([]int)
-		list2 := tc["list2"].([]int)
-		head1 := linkedlist.CreateFromArray(list1)
-		head2 := linkedlist.CreateFromArray(list2)
-
-		expected := tc["expected"].([]int)
-
-		mergedHead :=  mergeTwoLists(head1, head2)
-		actual := mergedHead.GetArrayFromLinkedList()
-
-		fmt.Printf("Is the solution correct for testcase %s : %v\n", name, utils.IntArrayEquals(expected, actual))
-	}
-}
-
-func RunTestsForMergeTwoSortedLinkedListsInPlace()  {
-	tcs := getTestCasesForMergeTwoSortedLinkedLists()
-
-	for name, tc := range tcs {
-		list1 := tc["list1"].([]int)
-		list2 := tc["list2"].([]int)
-		head1 := linkedlist.CreateFromArray(list1)
-		head2 := linkedlist.CreateFromArray(list2)
-
-		expected := tc["expected"].([]int)
-
-		mergedHead :=  mergeTwoListsInPlace(head1, head2)
-		actual := mergedHead.GetArrayFromLinkedList()
-
-		fmt.Printf("Is the solution correct for testcase %s : %v\n", name, utils.IntArrayEquals(expected, actual))
-	}
-}
-
-func getTestCasesForMergeTwoSortedLinkedLists() map[string]map[string]interface{} {
-	return map[string]map[string]interface{}{
-		"tc1": {
-			"list1": []int{1,2,4},
-			"list2": []int{1,3,4},
-			"expected": []int{1,1,2,3,4,4},
-		},
-		"tc2": {
-			"list1": []int{},
-			"list2": []int{},
-			"expected": []int{},
-		},
-		"tc3": {
-			"list1": []int{},
-			"list2": []int{0},
-			"expected": []int{0},
-		},
-		"tc4": {
-			"list1": []int{-9,3},
-			"list2": []int{5,7},
-			"expected": []int{-9,3,5,7},
-		},
-	}
 }
