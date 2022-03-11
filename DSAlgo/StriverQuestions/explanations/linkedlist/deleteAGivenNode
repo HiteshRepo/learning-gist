@@ -1,0 +1,6 @@
+Solution:
+1. Given, the node itself
+2. We do not have access to head
+3. So basically we do not have access to what is on the left of the node
+4. We can copy the next of given node to the given node itself and that solves it
+5. We do node.Val = node.Next.Val & node.Next = node.Next.Next

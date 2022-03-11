@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func Benchmark_AddTowNumbers(b *testing.B) {
+func Benchmark_AddTwoNumbers(b *testing.B) {
 	tcs := getTestCases()
 
 	for _, tc := range tcs {
