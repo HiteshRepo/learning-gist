@@ -1,0 +1,17 @@
+BruteForce:
+1. Iterate one list in one loop and the other in an inner loop
+2. If current node of first list matches the current node inner list return node, remember compare the whole ndoe and not just valuse
+3. If no such common node encountered, return nil at the end of both loops
+
+Difference of lists:
+1. Find lengths of both lists by traversing both of them
+2. Find the positive difference
+3. Traverse the bigger list by the diff
+4. Start traversing both list now by 1 step and check equality at each interval
+5. Return the node if matched, else return nil
+
+Hashing:
+1. Iterate through list1 and store each node in a map as key
+2. Iterate through list2 and check for the currNode in the map
+3. If found return currNode
+4. At the end if nothing found return nil
