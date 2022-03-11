@@ -1,0 +1,15 @@
+Solution:
+1. First we create 2 nodes tmp and head
+2. tmp is an empty node, val is 0 and next is nil
+3. head is equal to tmp, not pointing to tmp as per linked list domain
+4. we take 2 variables sum and carry and assign them as 0
+5. we iterate till l1 == nil or l2 == nil or carry > 0
+6. if l1 is not null, we add l1's val to sum
+7. if l2 is not null, we add l2's val to sum
+8. if carry is greater than 0, then we add carry to sum
+9. no we create a new empty node
+10. if sum > 0, we assign new node's val with sum%10 and carry with sum/10
+11. else we assign new node's val with sum itself
+12. we assign tmp.Next with new node
+13. then we move tmp to the new node itself
+14. after the iteration, we return head.next
