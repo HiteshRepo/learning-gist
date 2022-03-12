@@ -1,0 +1,17 @@
+Solution:
+1. first find the length of the linked list
+2. take 3 pointers curr, prev and next
+3. create a dummy pointer that points to head, not equals to head
+4. assign prev with dummy head
+5. start the loop with condition, length >= given group size
+6. assign curr with prev.next and next with curr.next
+7. run an inner loop that moves from i=1 to given group size
+8. assign curr.Next with next.Next, this is to preserve next's next because in the next step we are going to break the link b/w next and its current next node
+9. next.Next with pre.Next, this breaks the link b/w next and its current next node at the same time establishes link b/w next and its previous node, basically reverses
+10. now move prev to next by assigning prev with next
+11. now move next to crr.Next by assigning next with curr.Next
+12. after the inner loop is exhausted, the current group is reversed
+13. now we move onto next group, which just requires pre assigned with curr
+14. also reduce yhe length by group size
+15. idea is that for the current group, the previous points to the head, while current is the head and next is next of head
+16. when we switch group, we just make prv = curr
