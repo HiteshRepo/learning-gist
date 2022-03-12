@@ -7,11 +7,10 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func NewListNode(val int, next *ListNode) *ListNode {
-	return &ListNode{
-		Val:  val,
-		Next: next,
-	}
+type DoubleListNode struct {
+	Val  int
+	Next *DoubleListNode
+	Bottom *DoubleListNode
 }
 
 func CreateFromArray(arr []int) *ListNode {
@@ -37,12 +36,45 @@ func CreateFromArray(arr []int) *ListNode {
 	return head
 }
 
+func CreateDoubleListNodeFromArray(arr []int) *DoubleListNode {
+	var head *DoubleListNode
+
+	var prev *DoubleListNode
+	for i, n := range arr {
+		curr := &DoubleListNode{
+			Val:  n,
+			Bottom: nil,
+		}
+
+		if i > 0 {
+			prev.Bottom = curr
+		}
+
+		prev = curr
+		if i == 0 {
+			head = prev
+		}
+	}
+
+	return head
+}
+
 func (l *ListNode) GetArrayFromLinkedList() []int {
 	res := make([]int, 0)
 	node := l
 	for node != nil {
 		res = append(res, node.Val)
 		node = node.Next
+	}
+	return res
+}
+
+func (l *DoubleListNode) GetArrayFromLinkedList() []int {
+	res := make([]int, 0)
+	node := l
+	for node != nil {
+		res = append(res, node.Val)
+		node = node.Bottom
 	}
 	return res
 }
