@@ -27,6 +27,25 @@ func Test_HasCycle(t *testing.T)  {
 	}
 }
 
+func Test_GetCycleHead(t *testing.T)  {
+	tcs := getTestcases()
+
+	for _, tc := range tcs {
+		list := tc["list"].([]int)
+		expected := tc["expected"].(int)
+
+		if expected == -1 {
+			head := linkedlist.CreateFromArray(list)
+			cycleHead := cycle.GetCycleHead(head)
+			assert.Nil(t, cycleHead)
+		} else {
+			head := linkedlist.CreateCycleFromArray(list, expected)
+			cycleHead := cycle.GetCycleHead(head)
+			assert.Equal(t, list[expected], cycleHead.Val)
+		}
+	}
+}
+
 func Test_HasCycleSlowAndFastPointers(t *testing.T)  {
 	tcs := getTestcases()
 	var isCycle bool
@@ -44,6 +63,25 @@ func Test_HasCycleSlowAndFastPointers(t *testing.T)  {
 		}
 
 		assert.Equal(t, expected >= 0, isCycle)
+	}
+}
+
+func Test_GetCycleHeadSlowAndFastPointers(t *testing.T)  {
+	tcs := getTestcases()
+
+	for _, tc := range tcs {
+		list := tc["list"].([]int)
+		expected := tc["expected"].(int)
+
+		if expected == -1 {
+			head := linkedlist.CreateFromArray(list)
+			cycleHead := cycle.GetCycleHeadUsingSlowAndFastPointers(head)
+			assert.Nil(t, cycleHead)
+		} else {
+			head := linkedlist.CreateCycleFromArray(list, expected)
+			cycleHead := cycle.GetCycleHeadUsingSlowAndFastPointers(head)
+			assert.Equal(t, list[expected], cycleHead.Val)
+		}
 	}
 }
 

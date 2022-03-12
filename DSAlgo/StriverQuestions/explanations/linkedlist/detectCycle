@@ -5,6 +5,7 @@ HashMap:
 4. if found, return true
 5. else store the curr node as key in map
 6. if we reach the end of the linked list without getting any of the nodes again, return false
+7. if we want to return the node where the cycle began, we can the tmp node instead of bool
 
 slow and fast:
 1. take two pointers slow and fast
@@ -15,3 +16,5 @@ slow and fast:
     move slow by 1 step
     check if slow == fast, if they collide, return true
 6. return false if fast reaches end
+7. if we want to return the node where the cycle began, then where we detect slow == fast, we need to start another inner loop
+    that runs till slow == entry, entry is another node starting from head, move both pointers by 1 step and wherever they collide is the cycle head
