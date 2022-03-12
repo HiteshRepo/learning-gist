@@ -1,0 +1,17 @@
+HashMap:
+1. create a map of key as ListNode type and value as any [maybe struct]
+2. iterate through the linked list, condition is till the list reaches end
+3. on every iteration check if the curr node is in map
+4. if found, return true
+5. else store the curr node as key in map
+6. if we reach the end of the linked list without getting any of the nodes again, return false
+
+slow and fast:
+1. take two pointers slow and fast
+2. assign head to both of them
+3. iterate till fast != nil and fast.Next != nil
+4. for every iteration
+    move fast by 2 steps
+    move slow by 1 step
+    check if slow == fast, if they collide, return true
+6. return false if fast reaches end

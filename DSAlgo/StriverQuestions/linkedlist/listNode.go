@@ -111,3 +111,33 @@ func CreateIntersectedFromArrays(arr1, arr2 []int, intersect int) (*ListNode, *L
 
 	return head1, head2
 }
+
+func CreateCycleFromArray(arr []int, pos int) *ListNode {
+	var head *ListNode
+	var posNode *ListNode
+
+	var prev *ListNode
+	for i, n := range arr {
+		curr := &ListNode{
+			Val:  n,
+			Next: nil,
+		}
+
+		if i == pos {
+			posNode = curr
+		}
+
+		if i > 0 {
+			prev.Next = curr
+		}
+
+		prev = curr
+		if i == 0 {
+			head = prev
+		}
+	}
+
+	prev.Next = posNode
+
+	return head
+}
