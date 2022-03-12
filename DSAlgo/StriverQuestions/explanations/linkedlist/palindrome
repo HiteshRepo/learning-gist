@@ -1,0 +1,21 @@
+Using additional DS (array)
+1. Traverse the linked list and store the values in an array
+2. take two pointers i, j
+3. i points to 0 and j points last index of array
+4. run a loop with condition i<j
+5. in the loop increase i by 1 and decrease j by 1
+6. if at any point arr[i] != arr[j], then return false
+7. else at the end of loop return true
+
+Optimized:
+1. we take 2 pointers, slow and fast
+2. assign head to both sow and fast
+3. move fast by 2 steps, that means fast = fast.next.next and slow by 1 step
+4. run the loop til fast.next != nil and fast.next.next != nil
+5. by doing so we make slow pointer reach the middle of the linked list
+6. then we reverse the linked list from slow till end
+7. we also create a temp pointer and assign head to it
+8. then we run a loop from slow till end
+9. on every iteration we check if slow.val == tmp.val
+10. if no match we return false and we move bith slow and temp by 1 position
+11. return true at the end
