@@ -1,0 +1,7 @@
+Solution:
+1. take a variable to store max consecutive ones
+2. take another variable to store current consecutive ones
+3. iterate through the list, and if 1 is encountered then increment currOnes by 1
+    else re initialize currOnes with 0
+4. also in each iteration check if currOnes is greater than maxOnes,
+if currOnes is greater then assign maxOnes with currOnes
