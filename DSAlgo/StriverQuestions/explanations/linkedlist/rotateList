@@ -1,0 +1,25 @@
+BruteForce
+1. we require 3 pointers: first, last and secondLast
+2. we also require 2 loops
+3. outer loop is for rotating the list the given number of times
+4. inner loop is for finding the last and second last node
+5. in the inner loop we find the last node and secondLast node and do following operations:
+    we set last.next = first
+    we also set secondLast.Next = nil
+    we finally set first = last
+6. we increase the count after each iteration
+7. the outer loop will run for the given number of rotation counts
+8. finally we return the first node
+
+Optimal
+1. Since we are rotating the list, if the given number of times is greater than the length of the list
+    then we are basically repeating the same rotation again
+2. So instead we will find the real given number of times, we can do that by using the formula
+    k = k%length
+    and targetNode = length - k
+3. we first find the length of list
+4. Then we point the last node to first and make it cyclic
+5. We then figure out the targetNode using the formula
+6. Finally we traverse the list from start till the target node and break its link with its next
+7. Then we return the head of the result list
+
