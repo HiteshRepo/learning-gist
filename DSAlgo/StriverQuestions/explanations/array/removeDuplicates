@@ -1,0 +1,11 @@
+BruteForce
+1. Create a map to store unique numbers fro given array
+2. Iterate through the given array and store only unique numbers in the map
+3. Iterate through the map and replace the values from map incrementally in the given array
+4. Return length of the map
+
+Optimized:
+1. take a pointer i and assign 0 to it
+2. start a loop and iterate from 1 to len of array, let loop var be j
+3. if arr[j] != arr[i], then increase i by 1 and then replace arr[i] with arr[j]
+4. at the end of loop, return i+1
