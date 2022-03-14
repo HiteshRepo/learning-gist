@@ -1,0 +1,13 @@
+BruteForce
+1. Amount of water trapped at that point/height is min of max of left heights and max of right heights minus height at of the current
+2. So we run a loop from 0 to N
+3. find max to the left and store in lmax
+4. find max to the right and store in rmax
+5. find min of lmax and rmax
+6. subtract current height from the computed min
+7. add the result to the trap
+8. return trap
+
+Optimal
+1. We can optimize the previous approach just by pre computing the lmax and rmax of different heights
+    instead of doing it repeatedly for every height
