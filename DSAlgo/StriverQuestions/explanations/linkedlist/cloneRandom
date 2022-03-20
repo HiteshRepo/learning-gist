@@ -1,0 +1,7 @@
+Naive:
+1. Create a map of type Node as key and Node as value as well.
+2. Traverse the linked list, for every node in original list create a new node and populate just the value (leave out next and random)
+3. Now traverse the map, for each key node, update the value node's next and random with map[key.next] and ma[key.random] respectively
+4. Return map[head]
+
+Optimal:
