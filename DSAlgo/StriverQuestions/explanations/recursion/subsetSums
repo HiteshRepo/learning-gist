@@ -1,0 +1,20 @@
+Iterative solution
+1. Get all subsets iteratively.
+2. Then calculate the sum of each subset and sort the results.
+3. Then return the results.
+4. Getting all the subsets is the task here.
+5. Take a result array that will be a 2D array which will store all the subsets
+6. Take a outer for loop, that will iterate through the given array.
+7. The inner for loop will iterate through the resultArray.
+8. In the inner for loop below actions will be performed
+    1. add the current element (which is directed by outer loop) to the current subset (which is directed by inner loop)
+    2. then add the resultant subset to the results superset
+
+Recursive Solution
+1. Get all subsets recursively.
+2. Then calculate the sum of each subset and sort the results.
+3. Then return the results.
+4. Getting all the subsets is the task here.
+5. The break clause would be if current index is equal to length of array, then append the current subset to results subset after removing nulls
+6. If break clause is not met, then either consider the current index element or not
+7. But recursively call the function with an increased index for both the scenarios
