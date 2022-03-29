@@ -1,0 +1,7 @@
+Recursive Solution
+1. We need to get all subsets recursively.
+2. The break clause would be if current index is equal to length of array, then append the current subset to results subset after removing nulls
+3. If break clause is not met, then either consider the current index element or not
+4. But recursively call the function with an increased index for both the scenarios
+5. But before adding the subset to result subsets, we need to check if the current subset that we are about to add is present already or not
+6. A good way to do that would be to maintain a separate map that can store the subsets as key in form of strings

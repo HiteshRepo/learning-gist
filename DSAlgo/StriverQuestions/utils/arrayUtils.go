@@ -104,6 +104,20 @@ func IntIsArrayInMatrix(a [][]int, b []int) bool {
 	return false
 }
 
+func IntIsArrayInMatrixUnExact(a [][]int, b []int) bool {
+	if len(a) == 0 || len(b) == 0 {
+		return false
+	}
+
+	for _, row1 := range a {
+		if IntArrayElementsEquals(b, row1) {
+			return true
+		}
+	}
+
+	return false
+}
+
 func RuneIsArrayInMatrix(a [][]rune, b []rune) bool {
 	if len(a) == 0 || len(b) == 0 {
 		return false
