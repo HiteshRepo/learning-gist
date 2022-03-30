@@ -1,0 +1,10 @@
+Solution:
+1. The intuition behind such use cases which involves combinations or subsequences is recursion
+2. Also while in recursion, pick up and not pick up scenario comes to mind
+3. In this we shall follow a similar strategy as in finding unique subsets
+4. For every index of array, we shall either pick or not pick
+5. When we pick we shall not increase the index and also reduce the target by the number picked
+6. But while backtracking we shall remove the last picked
+7. When not picked, we just increase the index and leave the target untouched
+8. The break clause will check for index = len(arr)
+9. Also it will add to the results only if target is 0
