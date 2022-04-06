@@ -1,0 +1,13 @@
+Solution:
+1. In this question we have to return all the palindromic partitions of the given string.
+2. There is a difference in palindromic strings of a given string and palindromic partitions of the given string.
+3. The difference is in palindromic strings, we just have to return all possible palindromic strings,
+    for an example, if "aabb" is a given string
+    palindromic strings would be: [a, aa, b, bb]
+    but palindromic partitions would be: [[a, a, b, b], [aa, b, b], [aa, bb], [aa, b, b]]
+    basically in palindromic partitions we return an array of partitions and each partition represents the string broken into individual palindromic strings
+4. In order to solve this we need to do recursion because the same action is to be performed on a string or a subset of string
+5. We take a index, then we substring of the incoming string that starts from 0 till the index
+6. Then we check if the substring is palindrome or not
+    if palindrome we store it in a bucket and perform same operation on the other part of the incoming string
+7. The breaking clause would be: if index is equal to length of string, we put the current bucket into ultimate result bucket
