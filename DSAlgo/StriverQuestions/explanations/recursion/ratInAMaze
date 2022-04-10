@@ -1,0 +1,14 @@
+Solution:
+1. Our goal is to reach the last position in the matrix from the first position in the matrix.
+2. We cannot move over 0 as it is a blocked path.
+3. Our result should be in lexicographical order.
+4. Once visited the path cannot be travelled again.
+5. If first block is 0, then we cannot move at all.
+6. So there are four directions allowed to move, D (down), L (left), R (right), U (up).
+7. In order to keep our result lexicographical, we will attempt to move in the same order.
+8. When we move D, row increases by 1 and column stays the same.
+9. When we move U, row decreases by 1 and column stays the same.
+10. When we move L, row stays the same and column decreases by 1.
+11. When we move R, row stays the same and column increases by 1.
+12. Before we move, we mark that position as visited.
+13. While backtracking we make that position unvisited again.
