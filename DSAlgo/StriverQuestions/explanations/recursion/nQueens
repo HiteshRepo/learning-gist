@@ -1,0 +1,12 @@
+Solution:
+1. In order to solve this problem, we need to do following activities for each row
+    1. Iterate through each column
+    2. Check if the column of the current row is valid or not
+    3. What makes a column of the current row valid
+        1. No Queens present in the row
+        2. No Queens present in the column
+        3. No Queens present in the diagonals (top-right, top-left, bottom-right and bottom-left)
+    4. If the column of the current row is valid, mark the column in the grid with a 'Q' and recursively call for next row
+    5. Also while backtracking, clear the marked column in the grid (make it '.')
+2. The breaking clause is:
+    If the current row is equal to length of matrix, save current grid to the ans
