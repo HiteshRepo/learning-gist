@@ -1,0 +1,9 @@
+Solution:
+1. Pick a starting node
+2. Add a color to it starting from 1
+3. Go to its neighbor
+4. Start with color 1
+5. Check if the color can be applied (cannot be applied if any 1 of its neighbor has the same color)
+6. If can be applied, add the color to it
+7. Return true if the next node is already colored
+8. Else clear the color applied to the current node, because the color applied to current node did not let its nbr apply any other color. Hence need to try with a different color for current node.
