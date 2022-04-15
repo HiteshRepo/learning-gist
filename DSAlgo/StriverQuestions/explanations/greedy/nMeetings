@@ -1,0 +1,15 @@
+Solution:
+1. If we have 2 meetings in a room, 1 meeting gets over fast and another lasts longer. Which one should you choose?
+2. For obvious reasons, the fast one, so that we can accommodate more number of meetings.
+3. So in order to solve this, end timings will be the driving point.
+4. We have been given: start timings, end timings and number of meetings.
+5. First we sort end timings in ascending also arrange start timings accordingly.
+6. We take 2 data structures: one array to store the results and another variable to store the current limit.
+7. At the beginning, we store first start time in results array and set limit as the first end timing.
+8. That is because, we can always have at least 1 meeting.
+9. Then we iterate over sorted end timings starting from 2nd position.
+10. If the corresponding start time is greater than the current limit, then we do below 2 activities:
+    1. append to results array the current start time
+    2. update the limit to current end time
+11. Else, we skip the current meeting.
+12. We return the length of results: count of accommodated meetings.
