@@ -1,0 +1,25 @@
+Naive:
+1. We have been given: arrival timings, departure timings and noOfTrains.
+2. Intuition that we can apply here is: find the overlap timings of each train and figure out the maximum overlap among all trains.
+3. Overlap of timing simply means: if arrival of next train is less than or equal to departure of previous train.
+4. For this we require 2 loops: outer loop for each train and inner loop to compare timings for outer loop train with other trains
+    1. Outer loop runs from 0 to n
+    2. Inner loop runs from i+1 to n
+    3. Condition to check overlap = (arr[i] <= arr[j] && arr[j] <= dep[i]) || (arr[j] <= arr[i] && arr[i] <= dep[j])
+    4. If the above condition matches then increase count by 1
+    5. After inner loop compare the current count with maxCount and update max
+    6. Re-initialize count to 1
+5. Return maxCount.
+
+Optimal:
+1. We have been given: arrival timings, departure timings and noOfTrains.
+2. Intuition that we can apply here is: If we sort all arrival and departure timings, then if arrival of next train is less than or equal to departure of previous train, then we increase the count else we decrease the count.
+3. The reason we increase the count is since there is already some train and another train arrives, we must increase the platform count.
+4. The reason we decrease the count is since one of the already existing train has departed, we must decrease the platform count.
+5. For this we require 1 loop.
+6. i starts form 1 and j starts from 0.
+7. Loop runs till i and j less than n.
+8. If arr[i] <= dep[j], the count+=1.
+9. else count -= 1.
+10. update maxCount.
+11. Return maxCount.
