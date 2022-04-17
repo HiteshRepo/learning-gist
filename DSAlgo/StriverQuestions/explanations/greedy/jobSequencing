@@ -1,0 +1,11 @@
+Solution:
+1. Problem statement is to figure out a way to generate max profit with as many jobs possible to perform.
+2. So in order to achieve this, we need to sort the given jobs in descending order of the profits.
+3. Then find out the max deadline.
+4. Create an empty array to store job info of length equal to max deadline.
+5. Iterate through the jobs.
+6. Check deadline and place it in the highest possible deadline.
+7. Skip if not possible within deadline.
+8. Repeat this for each job.
+9. Count the number of jobs accommodated and combined profit.
+10 Return the count and profit as an array.
