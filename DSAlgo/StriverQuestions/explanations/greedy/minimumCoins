@@ -1,0 +1,6 @@
+Solution
+1. Sort the coins in ascending order.
+2. Start iteration from back of the coins array.
+3. Skip the coin if it is greater than the given value.
+4. If not skipped, decrease the value by the coin value and increment count of coin by 1.
+5. Run the iteration till either loop finishes or value is fulfilled.
