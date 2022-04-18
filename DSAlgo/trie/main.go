@@ -11,6 +11,30 @@ func main() {
 	TestTrie()
 	log.Println("--------Trie With Map---------")
 	TestTrieWithMap()
+	log.Println("--------Trie Ce Cp---------")
+	TestCeCpTrie()
+}
+
+func TestCeCpTrie() {
+	allPrefixes := getTestPrefixes()
+
+	trie := trie_data_structure.GetNewCeCpTrie()
+
+	for _, word := range allPrefixes {
+		trie.Insert(word)
+	}
+
+	fmt.Println(trie.CountWordsStartsWith("ap")) //3
+	fmt.Println(trie.CountWordsStartsWith("ba")) //2
+	fmt.Println(trie.CountWordsStartsWith("az")) //0
+	fmt.Println(trie.CountWordsEndWith("apple")) //1
+	fmt.Println(trie.CountWordsEndWith("bac")) //1
+	fmt.Println(trie.CountWordsEndWith("vat")) //0
+
+	trie.Erase("bac")
+	fmt.Println(trie.CountWordsEndWith("bac")) //0
+	trie.Erase("apple")
+	fmt.Println(trie.CountWordsStartsWith("ap")) //2
 }
 
 func TestTrieWithMap() {
