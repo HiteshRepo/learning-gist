@@ -91,3 +91,19 @@ func (t *MapTrie) StartsWith(prefix string) bool {
 
 	return true
 }
+
+func (t *MapTrie) GetLongestWord(words []string) string {
+	completeString := ""
+
+	for _,w := range words {
+		if !t.Search(w) {
+			continue
+		}
+
+		if len(w) > len(completeString) {
+			completeString = w
+		}
+	}
+
+	return completeString
+}

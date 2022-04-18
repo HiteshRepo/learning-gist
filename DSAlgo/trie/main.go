@@ -13,6 +13,22 @@ func main() {
 	TestTrieWithMap()
 	log.Println("--------Trie Ce Cp---------")
 	TestCeCpTrie()
+	log.Println("--------Longest Word---------")
+	TestLongestWord()
+}
+
+func TestLongestWord() {
+	allWords := []string{"n", "ninja", "ni", "nin", "ninjaa", "ninga"}
+
+	trie := trie_data_structure.GetNewMapTrie()
+
+	for _, word := range allWords {
+		trie.Insert(word)
+	}
+
+	findWords := []string{"n", "ni", "nin", "ning"}
+
+	fmt.Println(trie.GetLongestWord(findWords)) //nin
 }
 
 func TestCeCpTrie() {
