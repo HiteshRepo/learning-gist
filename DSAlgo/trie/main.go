@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/hiteshrepo/learninggist/dsalgo/trie/distinct_substrings"
 	"github.com/hiteshrepo/learninggist/dsalgo/trie/trie_data_structure"
 	"log"
 )
@@ -15,6 +16,12 @@ func main() {
 	TestCeCpTrie()
 	log.Println("--------Longest Word---------")
 	TestLongestWord()
+	log.Println("--------Distinct Substrings---------")
+	TestDistinctSubstrings()
+}
+
+func TestDistinctSubstrings() {
+	distinct_substrings.PrintDistinctSubstringsCount("abab")
 }
 
 func TestLongestWord() {
