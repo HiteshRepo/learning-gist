@@ -7,3 +7,5 @@ fileignoreconfig:
   checksum: 0db93aa2f5ba99f35811dc33f0a84aad1f0e4a8ebed3dc65a494161aa5dfb192
 - filename: DSAlgo/StriverQuestions/go.sum
   checksum: 21f62a2232ffb9f6f81cd2c7c5dca424f93d1126a4689f97792664e96724c28d
+- filename: DSAlgo/trie/go.sum
+  checksum: 9357efc0e2b94e85366a91f3c6a34224e3333a7c902e0dd576387c0dac59acd8
