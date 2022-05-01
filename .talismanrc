@@ -9,3 +9,5 @@ fileignoreconfig:
   checksum: 21f62a2232ffb9f6f81cd2c7c5dca424f93d1126a4689f97792664e96724c28d
 - filename: DSAlgo/trie/go.sum
   checksum: 9357efc0e2b94e85366a91f3c6a34224e3333a7c902e0dd576387c0dac59acd8
+- filename: DSAlgo_In_Golang/go.sum
+  checksum: 272a3a2f2a86133570e7ba67e4af4a298ce299a256add2e0b6b93056a87e3797
