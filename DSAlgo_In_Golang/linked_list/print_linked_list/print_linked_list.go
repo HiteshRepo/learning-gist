@@ -1,4 +1,4 @@
-package linked_list
+package print_linked_list
 
 import "github.com/hiteshrepo/LearningGist/DSAlgo_In_Golang/utils/linked_list"
 

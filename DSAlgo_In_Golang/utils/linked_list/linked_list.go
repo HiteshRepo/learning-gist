@@ -17,6 +17,10 @@ func (n *Node) Next() *Node {
 	return n.next
 }
 
+func (n *Node) SetNext(node *Node) {
+	n.next = node
+}
+
 type LinkedList struct {
 	head *Node
 }
