@@ -4,20 +4,22 @@ import (
 	"fmt"
 	"github.com/hiteshrepo/learninggist/dsalgo/trie/distinct_substrings"
 	"github.com/hiteshrepo/learninggist/dsalgo/trie/trie_data_structure"
-	"log"
 )
 
 func main() {
-	log.Println("--------Trie---------")
-	TestTrie()
-	log.Println("--------Trie With Map---------")
-	TestTrieWithMap()
-	log.Println("--------Trie Ce Cp---------")
-	TestCeCpTrie()
-	log.Println("--------Longest Word---------")
-	TestLongestWord()
-	log.Println("--------Distinct Substrings---------")
-	TestDistinctSubstrings()
+	//log.Println("--------Trie---------")
+	//TestTrie()
+	//log.Println("--------Trie With Map---------")
+	//TestTrieWithMap()
+	//log.Println("--------Trie Ce Cp---------")
+	//TestCeCpTrie()
+	//log.Println("--------Longest Word---------")
+	//TestLongestWord()
+	//log.Println("--------Distinct Substrings---------")
+	//TestDistinctSubstrings()
+
+	t := distinct_substrings.GetNewMapTrie()
+	t.PrintDistinctSubstringsOptimal("abc")
 }
 
 func TestDistinctSubstrings() {
