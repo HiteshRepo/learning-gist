@@ -1,7 +1,7 @@
-package array_test
+package cumulative_sum_test
 
 import (
-	"github.com/hiteshrepo/LearningGist/DSAlgo_In_Golang/array"
+	"github.com/hiteshrepo/LearningGist/DSAlgo_In_Golang/array/cumulative_sum"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -12,7 +12,7 @@ func Test_GetCumulativeSum(t *testing.T) {
 	for _, tc := range tcs {
 		nums := tc["nums"].([]int)
 		expected := tc["expected"].([]int)
-		actual := array.GetCumulativeSum(nums)
+		actual := cumulative_sum.GetCumulativeSum(nums)
 		assert.ElementsMatch(t, expected, actual)
 	}
 }

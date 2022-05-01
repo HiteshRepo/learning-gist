@@ -1,4 +1,4 @@
-package array
+package cumulative_sum
 
 func GetCumulativeSum(arr []int) []int {
 	ans := make([]int, len(arr))
