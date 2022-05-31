@@ -1,6 +1,7 @@
 package combinationSubsetSumWithoutDup_test
 
 import (
+	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/recursion/combinationSubsetSumWithoutDup"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -14,7 +15,7 @@ func Test_CombinationSum2(t *testing.T) {
 
 		expected := tc["expected"].([][]int)
 
-		actual := CombinationSum2(candidates, target)
+		actual := combinationSubsetSumWithoutDup.CombinationSum2(candidates, target)
 		assert.ElementsMatch(t, expected, actual)
 	}
 }

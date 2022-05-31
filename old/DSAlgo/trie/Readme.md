@@ -26,7 +26,7 @@
 3. 9 >> 3 (9 right shift 3) = 00000000...0001
 4. 3rd bit set or not = (num >> 3) & 1
 5. 00000000...0001 (9 >> 3) & 00000....00001 (1) = 00000....00000
-   1. if the resultant last bit i 0, then 3rd bit is set
+   1. if the resultant last bit is 0, then 3rd bit is set
    2. else not set
 
 ### Turn on a bit

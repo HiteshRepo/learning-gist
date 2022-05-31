@@ -1,6 +1,7 @@
 package ratInAMaze_test
 
 import (
+	"github.com/HiteshRepo/learninggist/DSAlgo/StriverQuestions/recursion/ratInAMaze"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -12,7 +13,7 @@ func Test_RatInAMaze(t *testing.T) {
 		maze := tc["maze"].([][]int)
 		expected := tc["expected"].([]string)
 
-		actual := FindAllPaths(maze)
+		actual := ratInAMaze.FindAllPaths(maze)
 		assert.ElementsMatch(t, expected, actual)
 	}
 }

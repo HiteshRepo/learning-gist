@@ -1,6 +1,7 @@
 package maximumXOR_test
 
 import (
+	"github.com/hiteshrepo/learninggist/dsalgo/trie/maximumXOR"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -12,7 +13,7 @@ func TestFindMaximumXOR(t *testing.T) {
 		nums := tc["nums"].([]int)
 		expected := tc["expected"].(int)
 
-		actual := FindMaximumXOR(nums)
+		actual := maximumXOR.FindMaximumXOR(nums)
 		assert.Equal(t, expected, actual)
 	}
 }

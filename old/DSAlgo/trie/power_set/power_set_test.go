@@ -1,6 +1,7 @@
 package power_set_test
 
 import (
+	"github.com/hiteshrepo/learninggist/dsalgo/trie/power_set"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -11,7 +12,7 @@ func TestGetAllPossibleStrings(t *testing.T) {
 	for _,tc := range tcs {
 		str := tc["str"].(string)
 		expected := tc["expected"].([]string)
-		actual := GetAllPossibleStrings(str)
+		actual := power_set.GetAllPossibleStrings(str)
 		assert.ElementsMatch(t, expected, actual)
 	}
 }

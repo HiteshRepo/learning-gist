@@ -11,3 +11,5 @@ fileignoreconfig:
   checksum: 9357efc0e2b94e85366a91f3c6a34224e3333a7c902e0dd576387c0dac59acd8
 - filename: DSAlgo_In_Golang/go.sum
   checksum: 272a3a2f2a86133570e7ba67e4af4a298ce299a256add2e0b6b93056a87e3797
+- filename: old/DSAlgo/Tests/go.sum
+  checksum: 759e6b2af9f0fbb65b7fbdec045f14c4b4a698be9dc68fdd3fbc322cbcf4a9b5
