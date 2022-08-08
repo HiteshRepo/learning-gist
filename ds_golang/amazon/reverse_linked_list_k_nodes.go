@@ -1,7 +1,7 @@
 package amazon
 
 import (
-	linkedlist "github.com/hiteshrepo/LearningGist/DSAlgo_In_Golang/utils/linked_list"
+	linkedlist "github.com/hiteshrepo/LearningGist/ds_golang/utils/linked_list"
 )
 
 // Given a linked list, write a function to reverse every k nodes (where k is an input to the function).

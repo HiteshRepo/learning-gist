@@ -1,7 +1,7 @@
 package print_linked_list_test
 
 import (
-	linked_list2 "github.com/hiteshrepo/LearningGist/DSAlgo_In_Golang/linked_list/print_linked_list"
+	linked_list2 "github.com/hiteshrepo/LearningGist/ds_golang/linked_list/print_linked_list"
 	"github.com/hiteshrepo/LearningGist/DSAlgo_In_Golang/utils/linked_list"
 	"github.com/stretchr/testify/assert"
 	"testing"
