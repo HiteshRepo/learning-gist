@@ -34,7 +34,7 @@ They together specify the resource on the server we would like to load.
 23. So often these static resources are cached onto the browser's cache for quick rendering in subsequent requests.
 
 ## Questions remaining to be answered?
-1. Details of TCP handshake in case of http and https.
+1. Details of TCP handshake in case of http and https: [How https work?](https://github.com/HiteshRepo/learning-gist/blob/master/talks/how_https_work.md)
 2. What is 'keep-alive' connection? examples, request formats
 3. What is 'session resumption'?
 4. Difference b/w 'keep-alive' connection and web-sockets?
