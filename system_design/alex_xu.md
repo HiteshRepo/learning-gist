@@ -18,12 +18,12 @@
         - before transactionA commits, transactionB reads the balance data, but transactionA is not commited so it reads the previous commited record via roll pointer
         - even when transactionA commits, transactionB reads from the read view created during start of transactionB
     
-dirty_read  non_repeatable  phantom_read    isolation_level      read                write
-----------  --------------  ------------    ---------------      ----                -----
-Impossible  Impossible      Impossible      Serializable         S Lock              X Lock
-Impossible  Impossible      Probably        Repeatable Read      MVCC (beginning)    X Lock
-Impossible  Probably        Probably        Read Committed       MVCC (last commit)  X Lock
-Probably    Probably        Probably        Read Uncommitted     No Lock             X Lock
+| dirty_read      | non_repeatable | phantom_read | isolation_level | read | write |
+| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| Impossible      | Impossible       | Impossible | Serializable | S Lock | X Lock |
+| Impossible      | Impossible       | Probably | Repeatable Read | MVCC (beginning) | X Lock |
+| Impossible      | Probably       | Probably | Read Committed | MVCC (last commit) | X Lock |
+| Probably      | Probably       | Probably | Read Uncommitted | No Lock | X Lock |
 
 ## IAAS/PAAS/SAAS
 1. A traditional IT manages below computing services:
