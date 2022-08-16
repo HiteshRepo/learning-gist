@@ -41,3 +41,7 @@
 3. PAAS manages: runtime, middleware, os, virtualization, servers, storage, networking only.
 4. SAAS manages: all traditional IT computing services.
 
+![cloud_computing_services.png](dist/cloud_computing_services.png)
+
+Image Source: https://www.ibm.com/cloud/learn/iaas-paas-saas
+
