@@ -29,3 +29,97 @@ Three concerns of software systems:
 1. Reliability
 2. Scalability
 3. Maintainability
+
+## Reliability
+
+What makes a software or an application reliable?
+1. The application performs the function as the user expects.
+2. It can tolerate user making mistakes or software is used in unexpected ways.
+3. It performs good enough (in terms of latency and throughput) for required use case, under expected load and data volume.
+4. Prevents unauthorized access.
+5. In layman terms, 'works correctly' under normal/expected situations and 'continues to work correctly' in abnormal cases.
+
+But things can go wrong and lead to faults. 
+Systems that can anticipate 'faults' and have the ability to cope are called 'fault-tolerant' systems.
+Thing to keep in mind is we can only tolerate 'certain faults' and not all.
+
+Fault vs Failure
+1. Fault is defined as one/some component of the whole system deviating from spec.
+2. Failure is when the system as a whole fails to provide required service, everything becomes unavailable.
+3. So it is best to design fault tolerant systems that prevent systems to go into failures.
+4. Which basically means approach components individually and make them fault tolerant so that minimizes the whole system encountering failure.
+
+Tolerating faults are preferred in some cases than preventing them.
+It is 'what to do', 'when things go wrong'. Providing an emphasis on actually things going wrong.
+For example, if an attacker has compromised the system, the event has occurred, and it cannot be prevented. Having mechanisms to subsidise the after-effects would be a better approach.
+Along with having mechanisms in place to 'cure faults'.
+
+### Hardware faults
+
+Examples of hardware faults:
+1. Hard disks crash.
+2. RAM becomes faulty.
+3. Power grid has a blackout.
+4. Unplugging of network cable.
+
+The above events happen very frequently, but we do not usually encounter, thanks to cloud platforms.
+For example, Hard disks have an MTTF of 10-50 years, so in a typical data center with 10000 disks, we should expect an average of one disk to die per day.
+
+Prevent hardware faults by redundancy:
+1. Disks being setup in RAID configuration.
+2. Servers having dual power supplies and hot-swappabble CPUs.
+3. Datacenters having batteries and diesel generators as power backups.
+
+So when one component dies, the other takes its place up until the primary component is back in action.
+
+This 'redundancy' method was enough until recent years. 
+But with emergence of high data volumes and high compute demanding systems, 'hardware redundancy' is not enough.
+Moreover in cloud platforms units/resources are quite ephemeral in nature.
+
+Hardware redundancy in conjunction with software fault tolerant techniques make systems more 'Reliable'.
+
+One of 'software fault tolerant techniques' is 'Rolling Upgrade'. This technique is employed to reduce system downtime to bare minimum while applying system patches, deploying newer versions, etc.
+
+### Software Errors
+
+Usually we assume hardware faults being random and independent. Which is correct.
+Also these random hardware faults have lower correlation, which means a CPU malfunctioning because of high temperature in the rack might not affect the backup CPU at some other place.
+
+But there are hardware faults that have higher correlation because of underlying software errors.
+
+
+Examples of software errors leading to hardware errors:
+1. A software bug that causes every instance of an app server to crash when a particular input is provided.
+2. A process that uses some shared resource.
+3. A service that the system depends on that slows down, becomes unresponsive or gives corrupt responses.
+4. Cascading failures, when one fault in a component leads to failures in others.
+
+These types of failures lie for a very long period of time undetected leading to unpleasant surprise.
+So it is essential to design components that can make assumptions about their environment when they do not get expected response from the dependent systems.
+
+Steps to do to prevent/avoid above:
+1. Carefully thinking about assumptions and interactions in the systems.
+2. Thorough testing.
+3. Process isolation.
+4. Allow process to crash and analyze behavior.
+5. Having measuring, monitoring systems in place.
+
+### Human errors
+
+Something that is inevitable but minimizable.
+
+Ways to minimize human errors:
+1. Design systems in a way that minimizes the opportunities. Via well-designed abstractions, APis and admin interfaces. This leads to discourage 'wrong thing'.
+2. Decouple places where making mistakes are more prevalent. Sandbox environments with real time data allows experimentation and fault detection.
+3. Testing: unit, manual, automation (for edge cases), whole-system integration tests.
+4. Allow quick and easy recovery from human errors to minimize impact in case of failure. Rolling back configuration, gradual deployments, provide tools to recompute data.
+5. Setup detailed monitoring such as performance metrics and error rates (telemetry data).
+6. Implement good management practices and training.
+
+### Why is reliability necessary?
+1. Even in case of mundane apps, we have a responsibility to our users.
+2. Leads to unproductivity to users.
+3. Damage to reputation.
+4. Loss of revenue of users.
+
+There are places where 'reliability' needs to sacrificed because of operational cost cutting. In those cases being conscious and tracking would help in quick response.
