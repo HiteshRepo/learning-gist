@@ -123,3 +123,49 @@ Ways to minimize human errors:
 4. Loss of revenue of users.
 
 There are places where 'reliability' needs to sacrificed because of operational cost cutting. In those cases being conscious and tracking would help in quick response.
+
+## Scalability
+
+If system is reliable in present times, then it does not guarantee that the system will remain reliable in future time.
+This is due to decline in performance because of increase in load, volume of data. Therefore 'Scalability' comes into the picture.
+
+Describing load:
+1. Load can be described using few numbers called 'Load parameters'.
+2. 'Load parameters' are not generic, they vary on the basis of architecture.
+3. A few examples of such parameters are:
+   1. Requests per second to a web server.
+   2. Ratio of reads to writes in a database.
+   3. Number of simultaneous users in a chat room.
+   4. Hit ratio on a cache.
+
+### Twitter Anecdote
+
+Two main operations of 'twitter' are:
+1. Post Tweet: Average load - 4.6k requests/second, Peak Load - 12k requests/second.
+2. Home Timeline: 300k requests/second.
+
+Twitter's scaling challenge was because of the 'fan-out'.
+
+Look twitter has users. Each user has several followers and each user is again followed by a several followees.
+
+There are 2 approaches to achieve the functionality:
+1. Posting a tweet simply inserts a new tweet to a global tweet collection and when a user loads his/her timeline a query as below is fired:
+   SELECT tweets.*, users.* FROM tweets
+      JOIN users ON tweets.sender_id == users.id
+      JOIN follows ON follows.followee_id == users.id
+      WHERE follows.follower_id == current_user
+   
+   The results of this tweet is then needed to be sorted by time.
+   This is taking place in a relational DB.
+   
+2. Maintaining of a cache for each user's home timeline. So when an user posts a tweet, the tweet is then fanned out to each of its followee's home timeline cache.
+   This results in an expensive write op but an easy read op.
+   
+Approach 2 makes sense because on an average tweet is delivered to about 75 followers, so 4.6k tweets/second become 345k writes per second to timeline caches.
+
+But some users have over 30million followers. A single tweet from them result in 30million writes to home timelines.
+
+So for twitter, distribution of followers per user can become a key 'Load parameter'.
+
+Twitter user approach1 in its very first version. Since it could not keep up with the load of timeline queries, it switched to approach2.
+But Twitter now uses a hybrid approach where approach2 is used for most users while approach1 is used for users with higher count of followers.
